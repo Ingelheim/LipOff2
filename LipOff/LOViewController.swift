@@ -9,6 +9,7 @@ class TGTMViewController : UIViewController {
     var shareButton : UIButton?
     var shareDialog : ShareDialog?
     var undo : UIButton?
+    var backButton : UIButton?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,10 +48,10 @@ class TGTMViewController : UIViewController {
         var logoTopBar = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 35))
         logoTopBar.backgroundColor = lipOffRed
         
-        var backButton = UIButton(frame: CGRect(x: 10, y: 8, width: 13, height: 22))
-        backButton.setImage(UIImage(named: "back"), forState: UIControlState.Normal)
-        backButton.addTarget(self, action: Selector("goBackToSelection"), forControlEvents: UIControlEvents.TouchDown)
-        logoTopBar.addSubview(backButton)
+        backButton = UIButton(frame: CGRect(x: 10, y: 8, width: 13, height: 22))
+        backButton!.setImage(UIImage(named: "back"), forState: UIControlState.Normal)
+        backButton!.addTarget(self, action: Selector("goBackToSelection"), forControlEvents: UIControlEvents.TouchDown)
+        logoTopBar.addSubview(backButton!)
         
         self.view.addSubview(logoTopBar)
     }

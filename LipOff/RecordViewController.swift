@@ -2,30 +2,30 @@ import UIKit
 import AVFoundation
 
 class RecordViewController: TGTMViewController {
-    var captureSession : TGTMCaptureSession?
+    var videoManager = VideoManager()
     var doneModal : UIImageView?
+    var activityIndicator : UIActivityIndicatorView?
+    var processingModal : UIImageView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         recordButton?.recordStartCallback = startRecording
         recordButton?.recordDoneCallback = stopRecording
         initVideo()
+        createProcessingModal()
         createDoneModal()
     }
     
     func initVideo() {
         var video = UIView(frame: self.view.frame)
-        captureSession = TGTMCaptureSession()
-        captureSession!.parent = self
-        
         self.view.addSubview(video)
         self.view.sendSubviewToBack(video)
-        
-        var previewLayer = AVCaptureVideoPreviewLayer(session: captureSession!)
+        videoManager.savedCallback = savedVideo
+        videoManager.setup()
+        videoManager.startCapturing()
+        var previewLayer = AVCaptureVideoPreviewLayer(session: videoManager.captureSession)
         video.layer.addSublayer(previewLayer)
         previewLayer?.frame = video.layer.frame
-        
-        captureSession!.startRunning()
     }
     
     func dissmissModal() {
@@ -44,35 +44,37 @@ class RecordViewController: TGTMViewController {
         self.view.addSubview(doneModal!)
     }
     
-    private func animateFlashIn() {
-        //        flashImage?.hidden = false
-        //        UIView.animateWithDuration(0.15, animations: { () -> Void in
-        //            self.flashImage?.alpha = 1.0
-        //            }) { (done) -> Void in
-        //                self.animateFlashOut()
-        //        }
-    }
-    
-    private func animateFlashOut() {
-        //        UIView.animateWithDuration(0.1, animations: { () -> Void in
-        //            self.flashImage?.alpha = 0.0
-        //            }) { (done) -> Void in
-        //                self.flashImage?.hidden = true
-        //        }
+    private func createProcessingModal() {
+        processingModal = UIImageView(frame: self.view.frame)
+        processingModal!.image = UIImage(named: "Processing")
+        processingModal?.userInteractionEnabled = false
+        processingModal!.hidden = true
+        
+        activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.WhiteLarge)
+        activityIndicator!.hidesWhenStopped = true
+        activityIndicator!.frame = processingModal!.frame
+        processingModal?.addSubview(activityIndicator!)
+        
+        self.view.addSubview(processingModal!)
     }
     
     private func startRecording() {
         println("start recording")
-        //        SocialMediaManager(parentVC: self).openShareDialog()
-        captureSession!.startRecording()
-        
-        animateFlashIn()
+        videoManager.done()
+        backButton!.enabled = false
     }
     
     private func stopRecording() {
         println("stop recording")
-        captureSession!.stopRecording()
-        animateFlashIn()
+        videoManager.done()
+        processingModal?.hidden = false
+        activityIndicator?.startAnimating()
+        backButton!.enabled = true
+    }
+    
+    private func savedVideo() {
+        processingModal?.hidden = true
+        activityIndicator?.stopAnimating()
         doneModal?.hidden = false
     }
 }

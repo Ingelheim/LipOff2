@@ -1,117 +1,64 @@
 import UIKit
 import AVFoundation
-import AssetsLibrary
 
-
-class TGTMCaptureSession : AVCaptureSession, AVCaptureFileOutputRecordingDelegate {
+class VideoManager: NSObject, AVCaptureFileOutputRecordingDelegate {
+    var captureSession = AVCaptureSession()
     var captureVideoDevice : AVCaptureDevice?
     var captureAudioDevice : AVCaptureDevice?
-    var movieDataOutput : AVCaptureMovieFileOutput?
-    var parent : UIViewController?
-    
+    var output = AVCaptureMovieFileOutput()
     var imageLayer : CALayer?
     var videoLayer : CALayer?
     var parentLayer : CALayer?
+    var playing = false
+    var button : UIButton?
+    var savedCallback : (() -> Void)?
     
-    override init() {
-        super.init()
-        setGeneralSettings()
-        setInputSettings()
-        setOutputSettings()
-        
-        if bothDevicesSet() {
-            beginPreviewSession()
-        }
+    func setup() {
+        captureSession.sessionPreset = AVCaptureSessionPresetHigh
+        setUpCaptureDeviceVideo()
     }
     
-    func startRecording() {
-        self.addOutput(movieDataOutput!)
-        self.startRunning()
-    }
-    
-    func stopRecording() {
-        println("STOPP")
-        stopRunning()
-        movieDataOutput!.stopRecording()
-        movieDataOutput!.startRecordingToOutputFileURL(NSURL(fileURLWithPath: "\(NSTemporaryDirectory())test.MOV"), recordingDelegate: self)
-    }
-    
-    private func setGeneralSettings() {
-        self.sessionPreset = AVCaptureSessionPresetMedium
-    }
-    
-    private func setInputSettings() {
+    private func setUpCaptureDeviceVideo() {
         let devices = AVCaptureDevice.devices()
         
         for device in devices {
-            if (isVideo(device)) {
-                if(isFrontCamera(device)) {
-                    setCamera(device)
-                }
+            
+            if (device.hasMediaType(AVMediaTypeVideo)) {
+                setVideoDevice(device as! AVCaptureDevice)
+            } else if (device.hasMediaType(AVMediaTypeAudio)){
+                setAudioDevice(device as! AVCaptureDevice)
             }
         }
-        
-        if let audioDevice = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeAudio) {
-            setMicrophone(audioDevice)
+    }
+    
+    private func setVideoDevice(device: AVCaptureDevice) {
+        if(device.position == AVCaptureDevicePosition.Front) {
+            captureVideoDevice = device
         }
     }
     
-    private func setOutputSettings() {
-        movieDataOutput = AVCaptureMovieFileOutput()
-    }
-    
-    private func isVideo(device: AnyObject) -> Bool {
-        return device.hasMediaType(AVMediaTypeVideo)
-    }
-    
-    private func isFrontCamera(device: AnyObject) -> Bool {
-        return device.position == AVCaptureDevicePosition.Front
-    }
-    
-    private func setCamera(device: AnyObject) {
-        captureVideoDevice = device as? AVCaptureDevice
-    }
-    
-    private func setMicrophone(device: AnyObject) {
-        captureAudioDevice = device as? AVCaptureDevice
-    }
-    
-    private func bothDevicesSet() -> Bool {
-        return captureAudioDevice != nil && captureVideoDevice != nil
-    }
-    
-    private func addCamera() {
-        var err : NSError? = nil
-        self.addInput(AVCaptureDeviceInput(device: captureVideoDevice!, error: &err))
-    }
-    
-    private func addMicrophone() {
-        var err : NSError? = nil
-        self.addInput(AVCaptureDeviceInput(device: captureAudioDevice!, error: &err))
-    }
-    
-    private func beginPreviewSession() {
-        addCamera()
-        addMicrophone()
+    private func setAudioDevice(device: AVCaptureDevice) {
+        captureAudioDevice = device
     }
     
     func captureOutput(captureOutput: AVCaptureFileOutput!, didFinishRecordingToOutputFileAtURL outputFileURL: NSURL!, fromConnections connections: [AnyObject]!, error: NSError!) {
         
-        println("DONE")
-        
         let pathString = outputFileURL.relativePath
         var asset = AVAsset.assetWithURL(outputFileURL) as! AVAsset
         var composition = AVMutableVideoComposition(propertiesOfAsset: asset)
-        composition.renderSize = CGSizeMake(parent!.view.frame.width, parent!.view.frame.height)
         
-        imageLayer =  createOverlayLayer(740, heigth: 1334)
-        parentLayer = createParentLayer(740, heigth: 1334)
-        videoLayer = createParentLayer(740, heigth: 1334)
+        imageLayer =  createOverlayLayer(750, heigth: 1334)
+        parentLayer = createParentLayer(750, heigth: 1334)
+        videoLayer = createParentLayer(750, heigth: 1334)
+
         
         parentLayer?.addSublayer(videoLayer)
         parentLayer?.addSublayer(imageLayer)
+        parentLayer?.addSublayer(createWebViewLayer(750, heigth: 1334))
         
         composition.renderScale = 1.0
+        
+        videoLayer?.addSublayer(test(750, heigth: 1334))
         
         composition.animationTool = AVVideoCompositionCoreAnimationTool(postProcessingAsVideoLayer: videoLayer, inLayer: parentLayer)
         
@@ -126,44 +73,72 @@ class TGTMCaptureSession : AVCaptureSession, AVCaptureFileOutputRecordingDelegat
         assetExport.outputURL = NSURL(fileURLWithPath: "\(NSTemporaryDirectory())\(date)\(hour)\(minutes)\(arc4random()).MOV")
         
         assetExport.exportAsynchronouslyWithCompletionHandler({() -> Void in
-            println("done \(assetExport.outputURL)")
-            //            when saved share it
-            
-            
-            //            ALAssetsLibrary *assetLibrary = [[ALAssetsLibrary alloc] init];
-            //            [assetLibrary writeVideoAtPathToSavedPhotosAlbum:url completionBlock:^(NSURL *assetURL, NSError *error){
-            
-            var assetLibrary = ALAssetsLibrary()
-            //            assetLibrary.writeVideoAtPathToSavedPhotosAlbum(assetExport.outputURL, completionBlock: {
-            //                println("savedddd")
-            //            })
-            
-            assetLibrary.writeVideoAtPathToSavedPhotosAlbum(assetExport.outputURL, completionBlock: { (url, error) -> Void in
-                println("savedddd \(url) and error \(error)")
-            })
-            
-            //            UISaveVideoAtPathToSavedPhotosAlbum(assetExport.outputURL.relativePath, self, nil, nil)
-            //            SocialMediaManager(parentVC: self.parent!).openShareDialog(assetExport.outputURL)
+            UISaveVideoAtPathToSavedPhotosAlbum(assetExport.outputURL.relativePath, self, nil, nil)
+            self.savedCallback!()
         })
+    }
+    
+    func startCapturing() {
+        var err : NSError? = nil
+        
+        if let recordingVideoDevice = captureVideoDevice {
+            captureSession.addInput(AVCaptureDeviceInput(device: recordingVideoDevice, error: &err))
+        }
+        
+        if let recordingAudioDevice = captureAudioDevice {
+            captureSession.addInput(AVCaptureDeviceInput(device: recordingAudioDevice, error: &err))
+        }
+        
+        captureSession.addOutput(output)
+        captureSession.startRunning()
+    }
+    
+    func done () {
+        if (!playing) {
+            output.startRecordingToOutputFileURL(NSURL(fileURLWithPath: "\(NSTemporaryDirectory())test.MOV"), recordingDelegate: self)
+            playing = true
+        } else {
+            captureSession.stopRunning()
+            output.stopRecording()
+            playing = false
+        }
     }
     
     private func createOverlayLayer(width: CGFloat, heigth: CGFloat) -> CALayer {
         var layer = CALayer()
-        var image = UIImage(named: "Ryan")
+        var image = UIImage(named: "KanyeCroppedAlphaFlip")
         
-        layer.frame = CGRect(x: 0, y: 0, width: parent!.view.frame.width, height: parent!.view.frame.height)
+        layer.frame = CGRectMake(0, 0, width, heigth)
+        layer.contents = image?.CGImage
+        return layer
+    }
+    
+    private func createWebViewLayer(width: CGFloat, heigth: CGFloat) -> CALayer {
+        var layer = CALayer()
+        var image = UIImage(named: "Weblink_Red")
+        
+        layer.frame = CGRect(x: 30, y: 30, width: 280, height: 85)
+        
         layer.contents = image?.CGImage
         return layer
     }
     
     private func createParentLayer(width: CGFloat, heigth: CGFloat) -> CALayer {
         var layer = CALayer()
-        layer.frame = CGRect(x: 0, y: 0, width: parent!.view.frame.width, height: parent!.view.frame.height)
+        layer.frame = CGRectMake(0, 0, width, heigth)
         return layer
     }
     
-    private func startCapturing() {
-        self.addOutput(movieDataOutput!)
-        self.startRunning()
+    private func test(width: CGFloat, heigth: CGFloat) -> CALayer {
+        var layer = CALayer()
+        layer.frame = CGRectMake(0, 0, width, heigth)
+        layer.backgroundColor = UIColor.orangeColor().colorWithAlphaComponent(0.1/5).CGColor
+        return layer
+    }
+    
+    private func createVideoLayer(width: CGFloat, heigth: CGFloat) -> CALayer {
+        var layer = CALayer()
+        layer.frame = CGRectMake(0, 0, width, heigth);
+        return layer
     }
 }

@@ -15,12 +15,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="1U5-au-vN4"/>
                     <connections>
-                        <segue destination="RlW-OR-MW7" kind="push" identifier="goToRecord" id="pBH-QU-DMn"/>
+                        <segue destination="RlW-OR-MW7" kind="push" identifier="goToRecord" id="jRS-YK-SAW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="303" y="406"/>
+            <point key="canvasLocation" x="423" y="386"/>
         </scene>
         <!--Record View Controller-->
         <scene sceneID="RnN-DZ-6f5">
@@ -35,7 +35,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HOy-iD-9QK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="743" y="406"/>
+            <point key="canvasLocation" x="1111" y="234"/>
+        </scene>
+        <!--Camera Record Controller-->
+        <scene sceneID="QQD-nh-lxe">
+            <objects>
+                <viewController id="0y1-a6-vXA" customClass="CameraRecordController" customModule="LipOff" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fND-7W-LFb">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="mYE-PU-vme"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eJS-Ps-5X4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="928" y="1120"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0K1-Xd-gMQ">
