@@ -1,0 +1,475 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		80B18B961B19FA6A002F5030 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B18B951B19FA6A002F5030 /* AppDelegate.swift */; };
+		80B18B9B1B19FA6A002F5030 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80B18B991B19FA6A002F5030 /* Main.storyboard */; };
+		80B18B9D1B19FA6A002F5030 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80B18B9C1B19FA6A002F5030 /* Images.xcassets */; };
+		80B18BA01B19FA6A002F5030 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80B18B9E1B19FA6A002F5030 /* LaunchScreen.xib */; };
+		80B18BAC1B19FA6B002F5030 /* LipOffTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B18BAB1B19FA6B002F5030 /* LipOffTests.swift */; };
+		80B18BB71B19FAA9002F5030 /* RecordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B18BB61B19FAA9002F5030 /* RecordButton.swift */; };
+		80B18BB91B19FABD002F5030 /* CounterLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B18BB81B19FABD002F5030 /* CounterLabel.swift */; };
+		80B18BBB1B19FAD7002F5030 /* ShareDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B18BBA1B19FAD7002F5030 /* ShareDialog.swift */; };
+		80B18BBE1B19FB09002F5030 /* LOViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B18BBD1B19FB09002F5030 /* LOViewController.swift */; };
+		80B18BC01B19FB20002F5030 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B18BBF1B19FB20002F5030 /* RecordViewController.swift */; };
+		80B18BC21B19FB37002F5030 /* SelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B18BC11B19FB37002F5030 /* SelectViewController.swift */; };
+		80B18BC51B19FB52002F5030 /* LOCaptureSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B18BC41B19FB52002F5030 /* LOCaptureSession.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		80B18BA61B19FA6B002F5030 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 80B18B881B19FA6A002F5030 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 80B18B8F1B19FA6A002F5030;
+			remoteInfo = LipOff;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		80B18B901B19FA6A002F5030 /* LipOff.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LipOff.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		80B18B941B19FA6A002F5030 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		80B18B951B19FA6A002F5030 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		80B18B9A1B19FA6A002F5030 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		80B18B9C1B19FA6A002F5030 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		80B18B9F1B19FA6A002F5030 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		80B18BA51B19FA6B002F5030 /* LipOffTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LipOffTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		80B18BAA1B19FA6B002F5030 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		80B18BAB1B19FA6B002F5030 /* LipOffTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LipOffTests.swift; sourceTree = "<group>"; };
+		80B18BB61B19FAA9002F5030 /* RecordButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordButton.swift; sourceTree = "<group>"; };
+		80B18BB81B19FABD002F5030 /* CounterLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CounterLabel.swift; sourceTree = "<group>"; };
+		80B18BBA1B19FAD7002F5030 /* ShareDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareDialog.swift; sourceTree = "<group>"; };
+		80B18BBD1B19FB09002F5030 /* LOViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LOViewController.swift; sourceTree = "<group>"; };
+		80B18BBF1B19FB20002F5030 /* RecordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
+		80B18BC11B19FB37002F5030 /* SelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectViewController.swift; sourceTree = "<group>"; };
+		80B18BC41B19FB52002F5030 /* LOCaptureSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LOCaptureSession.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		80B18B8D1B19FA6A002F5030 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		80B18BA21B19FA6B002F5030 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		80B18B871B19FA6A002F5030 = {
+			isa = PBXGroup;
+			children = (
+				80B18B921B19FA6A002F5030 /* LipOff */,
+				80B18BA81B19FA6B002F5030 /* LipOffTests */,
+				80B18B911B19FA6A002F5030 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		80B18B911B19FA6A002F5030 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				80B18B901B19FA6A002F5030 /* LipOff.app */,
+				80B18BA51B19FA6B002F5030 /* LipOffTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		80B18B921B19FA6A002F5030 /* LipOff */ = {
+			isa = PBXGroup;
+			children = (
+				80B18BC31B19FB46002F5030 /* Video */,
+				80B18BBC1B19FAED002F5030 /* ViewController */,
+				80B18BB51B19FA89002F5030 /* UIElements */,
+				80B18B951B19FA6A002F5030 /* AppDelegate.swift */,
+				80B18B991B19FA6A002F5030 /* Main.storyboard */,
+				80B18B9C1B19FA6A002F5030 /* Images.xcassets */,
+				80B18B9E1B19FA6A002F5030 /* LaunchScreen.xib */,
+				80B18B931B19FA6A002F5030 /* Supporting Files */,
+			);
+			path = LipOff;
+			sourceTree = "<group>";
+		};
+		80B18B931B19FA6A002F5030 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				80B18B941B19FA6A002F5030 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		80B18BA81B19FA6B002F5030 /* LipOffTests */ = {
+			isa = PBXGroup;
+			children = (
+				80B18BAB1B19FA6B002F5030 /* LipOffTests.swift */,
+				80B18BA91B19FA6B002F5030 /* Supporting Files */,
+			);
+			path = LipOffTests;
+			sourceTree = "<group>";
+		};
+		80B18BA91B19FA6B002F5030 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				80B18BAA1B19FA6B002F5030 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		80B18BB51B19FA89002F5030 /* UIElements */ = {
+			isa = PBXGroup;
+			children = (
+				80B18BB61B19FAA9002F5030 /* RecordButton.swift */,
+				80B18BB81B19FABD002F5030 /* CounterLabel.swift */,
+				80B18BBA1B19FAD7002F5030 /* ShareDialog.swift */,
+			);
+			name = UIElements;
+			sourceTree = "<group>";
+		};
+		80B18BBC1B19FAED002F5030 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				80B18BBD1B19FB09002F5030 /* LOViewController.swift */,
+				80B18BBF1B19FB20002F5030 /* RecordViewController.swift */,
+				80B18BC11B19FB37002F5030 /* SelectViewController.swift */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		80B18BC31B19FB46002F5030 /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				80B18BC41B19FB52002F5030 /* LOCaptureSession.swift */,
+			);
+			name = Video;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		80B18B8F1B19FA6A002F5030 /* LipOff */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 80B18BAF1B19FA6B002F5030 /* Build configuration list for PBXNativeTarget "LipOff" */;
+			buildPhases = (
+				80B18B8C1B19FA6A002F5030 /* Sources */,
+				80B18B8D1B19FA6A002F5030 /* Frameworks */,
+				80B18B8E1B19FA6A002F5030 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LipOff;
+			productName = LipOff;
+			productReference = 80B18B901B19FA6A002F5030 /* LipOff.app */;
+			productType = "com.apple.product-type.application";
+		};
+		80B18BA41B19FA6B002F5030 /* LipOffTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 80B18BB21B19FA6B002F5030 /* Build configuration list for PBXNativeTarget "LipOffTests" */;
+			buildPhases = (
+				80B18BA11B19FA6B002F5030 /* Sources */,
+				80B18BA21B19FA6B002F5030 /* Frameworks */,
+				80B18BA31B19FA6B002F5030 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				80B18BA71B19FA6B002F5030 /* PBXTargetDependency */,
+			);
+			name = LipOffTests;
+			productName = LipOffTests;
+			productReference = 80B18BA51B19FA6B002F5030 /* LipOffTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		80B18B881B19FA6A002F5030 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "Lukas Ingelheim";
+				TargetAttributes = {
+					80B18B8F1B19FA6A002F5030 = {
+						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = 3WURMV9M52;
+					};
+					80B18BA41B19FA6B002F5030 = {
+						CreatedOnToolsVersion = 6.3.2;
+						TestTargetID = 80B18B8F1B19FA6A002F5030;
+					};
+				};
+			};
+			buildConfigurationList = 80B18B8B1B19FA6A002F5030 /* Build configuration list for PBXProject "LipOff" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 80B18B871B19FA6A002F5030;
+			productRefGroup = 80B18B911B19FA6A002F5030 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				80B18B8F1B19FA6A002F5030 /* LipOff */,
+				80B18BA41B19FA6B002F5030 /* LipOffTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		80B18B8E1B19FA6A002F5030 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				80B18B9B1B19FA6A002F5030 /* Main.storyboard in Resources */,
+				80B18BA01B19FA6A002F5030 /* LaunchScreen.xib in Resources */,
+				80B18B9D1B19FA6A002F5030 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		80B18BA31B19FA6B002F5030 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		80B18B8C1B19FA6A002F5030 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				80B18BBE1B19FB09002F5030 /* LOViewController.swift in Sources */,
+				80B18BB91B19FABD002F5030 /* CounterLabel.swift in Sources */,
+				80B18BC01B19FB20002F5030 /* RecordViewController.swift in Sources */,
+				80B18BC21B19FB37002F5030 /* SelectViewController.swift in Sources */,
+				80B18BC51B19FB52002F5030 /* LOCaptureSession.swift in Sources */,
+				80B18B961B19FA6A002F5030 /* AppDelegate.swift in Sources */,
+				80B18BBB1B19FAD7002F5030 /* ShareDialog.swift in Sources */,
+				80B18BB71B19FAA9002F5030 /* RecordButton.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		80B18BA11B19FA6B002F5030 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				80B18BAC1B19FA6B002F5030 /* LipOffTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		80B18BA71B19FA6B002F5030 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 80B18B8F1B19FA6A002F5030 /* LipOff */;
+			targetProxy = 80B18BA61B19FA6B002F5030 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		80B18B991B19FA6A002F5030 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				80B18B9A1B19FA6A002F5030 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		80B18B9E1B19FA6A002F5030 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				80B18B9F1B19FA6A002F5030 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		80B18BAD1B19FA6B002F5030 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		80B18BAE1B19FA6B002F5030 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		80B18BB01B19FA6B002F5030 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = LipOff/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		80B18BB11B19FA6B002F5030 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = LipOff/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		80B18BB31B19FA6B002F5030 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = LipOffTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LipOff.app/LipOff";
+			};
+			name = Debug;
+		};
+		80B18BB41B19FA6B002F5030 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = LipOffTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LipOff.app/LipOff";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		80B18B8B1B19FA6A002F5030 /* Build configuration list for PBXProject "LipOff" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				80B18BAD1B19FA6B002F5030 /* Debug */,
+				80B18BAE1B19FA6B002F5030 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		80B18BAF1B19FA6B002F5030 /* Build configuration list for PBXNativeTarget "LipOff" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				80B18BB01B19FA6B002F5030 /* Debug */,
+				80B18BB11B19FA6B002F5030 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		80B18BB21B19FA6B002F5030 /* Build configuration list for PBXNativeTarget "LipOffTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				80B18BB31B19FA6B002F5030 /* Debug */,
+				80B18BB41B19FA6B002F5030 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 80B18B881B19FA6A002F5030 /* Project object */;
+}
