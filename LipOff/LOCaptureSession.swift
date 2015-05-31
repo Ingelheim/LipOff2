@@ -51,7 +51,6 @@ class VideoManager: NSObject, AVCaptureFileOutputRecordingDelegate {
         imageLayer =  createOverlayLayer(750, heigth: 1334)
         parentLayer = createParentLayer(750, heigth: 1334)
         videoLayer = createParentLayer(750, heigth: 1334)
-
         
         parentLayer?.addSublayer(videoLayer)
         parentLayer?.addSublayer(imageLayer)
@@ -75,7 +74,6 @@ class VideoManager: NSObject, AVCaptureFileOutputRecordingDelegate {
         
         assetExport.exportAsynchronouslyWithCompletionHandler({() -> Void in
             UISaveVideoAtPathToSavedPhotosAlbum(assetExport.outputURL.relativePath, self, nil, nil)
-            println("done")
             dispatch_async(dispatch_get_main_queue()) {
                 self.savedCallback!()
             }
@@ -112,25 +110,25 @@ class VideoManager: NSObject, AVCaptureFileOutputRecordingDelegate {
     private func createOverlayLayer(width: CGFloat, heigth: CGFloat) -> CALayer {
         var layer = CALayer()
         var image = UIImage(named: "\(celebName)CroppedAlphaFlip")
-        
         layer.frame = CGRectMake(0, 0, width, heigth)
         layer.contents = image?.CGImage
+        
         return layer
     }
     
     private func createWebViewLayer(width: CGFloat, heigth: CGFloat) -> CALayer {
         var layer = CALayer()
         var image = UIImage(named: "Weblink_Red")
-        
         layer.frame = CGRect(x: 30, y: 180, width: 280, height: 85)
-        
         layer.contents = image?.CGImage
+        
         return layer
     }
     
     private func createParentLayer(width: CGFloat, heigth: CGFloat) -> CALayer {
         var layer = CALayer()
         layer.frame = CGRectMake(0, 0, width, heigth)
+        
         return layer
     }
     
@@ -138,12 +136,14 @@ class VideoManager: NSObject, AVCaptureFileOutputRecordingDelegate {
         var layer = CALayer()
         layer.frame = CGRectMake(0, 0, width, heigth)
         layer.backgroundColor = UIColor.orangeColor().colorWithAlphaComponent(0.1/5).CGColor
+        
         return layer
     }
     
     private func createVideoLayer(width: CGFloat, heigth: CGFloat) -> CALayer {
         var layer = CALayer()
-        layer.frame = CGRectMake(0, 0, width, heigth);
+        layer.frame = CGRectMake(0, 0, width, heigth)
+        
         return layer
     }
 }

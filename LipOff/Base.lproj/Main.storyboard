@@ -16,11 +16,157 @@
                     <navigationItem key="navigationItem" id="1U5-au-vN4"/>
                     <connections>
                         <segue destination="RlW-OR-MW7" kind="push" identifier="goToRecord" id="jRS-YK-SAW"/>
+                        <segue destination="2tT-4B-zJj" kind="push" identifier="creativeCommons" id="xQg-95-4a8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="423" y="386"/>
+            <point key="canvasLocation" x="411" y="406"/>
+        </scene>
+        <!--Controller-->
+        <scene sceneID="cp1-yD-NTg">
+            <objects>
+                <viewController id="2tT-4B-zJj" customClass="CCController" customModule="LipOff" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lHh-af-Hkg">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="KimSmall" id="Fao-KO-ct8">
+                                <rect key="frame" x="24" y="178" width="65" height="87"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Eec-Cv-XNM" appends="YES" id="fyA-ll-5xM"/>
+                                </connections>
+                            </imageView>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TaylorSmall" id="nDe-Rw-2JO">
+                                <rect key="frame" x="24" y="273" width="65" height="87"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="8B9-9H-lZr" appends="YES" id="wYP-1J-bvc"/>
+                                </connections>
+                            </imageView>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RyanSmall" id="9ew-Wv-7Dl">
+                                <rect key="frame" x="24" y="368" width="65" height="87"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="JRQ-mE-gKH" appends="YES" id="ym3-1B-VIL"/>
+                                </connections>
+                            </imageView>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lsh-vj-qVX">
+                                <rect key="frame" x="97" y="83" width="207" height="87"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <string key="text">"Kanye West at the 2009 Tribeca Film Festival" by David Shankbone is licenced under CC BY 3.0. The mouth was cut out from the original.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="HYO-dc-VzY" appends="YES" id="YRW-8S-gQL"/>
+                                </connections>
+                            </label>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="be9-vd-kba">
+                                <rect key="frame" x="97" y="175" width="207" height="94"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <string key="text">"Kim Kardashian West,Parramatta Westfield Sydney Australia" by Eva Rinaldi Celebrity and Live Music Photographer is licenced under CC BY-SA 2.0. The mouth was cut out from the original.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="uK6-VC-Gdu" appends="YES" id="OKn-WV-DBy"/>
+                                </connections>
+                            </label>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8eR-EO-F5B">
+                                <rect key="frame" x="97" y="273" width="207" height="87"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <string key="text">"Taylor Swift at the premiere for Hannah Montana: The Movie." by Angela George is licenced under CC BY-SA 3.0. The mouth was cut out from the original.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="73u-t1-n3a" appends="YES" id="MD0-cV-nDr"/>
+                                </connections>
+                            </label>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QhX-IH-Tp7">
+                                <rect key="frame" x="97" y="368" width="207" height="87"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <string key="text">"El actor Ryan Gosling en el Festival de Cine de Cannes" by Raffi Asdourian is licenced under CC BY 2.0. The mouth was cut out from the original.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Fxb-5U-NQV" appends="YES" id="DmP-t4-nFw"/>
+                                </connections>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="e1D-QD-Wrx">
+                                <rect key="frame" x="16" y="463" width="288" height="105"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <string key="text">And special thanks to Kanye West, Kim Kardashian, Taylor Swift and Ryan Gosling for being born and being awesome! This app and produced content is licenced under CC BY 3.0. As we don't create any content ourselfes, we distance us from any videos produced with this app. Please be nice.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="KanyeSmall" id="Fpe-gp-wJH">
+                                <rect key="frame" x="24" y="83" width="65" height="87"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="o01-iT-VHt" appends="YES" id="WXd-z2-JJg"/>
+                                </connections>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="RQZ-nV-8dG"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rHd-xE-ePr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="o01-iT-VHt">
+                    <connections>
+                        <action selector="linkKanye:" destination="2tT-4B-zJj" id="c23-Sf-Ezk"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="HYO-dc-VzY">
+                    <connections>
+                        <action selector="linkKanye:" destination="2tT-4B-zJj" id="Cl7-vg-pBg"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="Eec-Cv-XNM">
+                    <connections>
+                        <action selector="linkKim:" destination="2tT-4B-zJj" id="ymP-du-hHe"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="uK6-VC-Gdu">
+                    <connections>
+                        <action selector="linkKim:" destination="2tT-4B-zJj" id="mgf-1e-BZx"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="8B9-9H-lZr">
+                    <connections>
+                        <action selector="linkTaylor:" destination="2tT-4B-zJj" id="2pD-Ab-bXf"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="73u-t1-n3a">
+                    <connections>
+                        <action selector="linkTaylor:" destination="2tT-4B-zJj" id="6ab-Bb-f6F"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="JRQ-mE-gKH">
+                    <connections>
+                        <action selector="linkRyan:" destination="2tT-4B-zJj" id="PQU-GY-oNW"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="Fxb-5U-NQV">
+                    <connections>
+                        <action selector="linkRyan:" destination="2tT-4B-zJj" id="6BH-WS-DvP"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="411" y="1123"/>
         </scene>
         <!--Record View Controller-->
         <scene sceneID="RnN-DZ-6f5">
@@ -35,22 +181,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HOy-iD-9QK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1111" y="234"/>
-        </scene>
-        <!--Camera Record Controller-->
-        <scene sceneID="QQD-nh-lxe">
-            <objects>
-                <viewController id="0y1-a6-vXA" customClass="CameraRecordController" customModule="LipOff" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="fND-7W-LFb">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="mYE-PU-vme"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eJS-Ps-5X4" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="176" y="1144"/>
+            <point key="canvasLocation" x="991" y="406"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0K1-Xd-gMQ">
@@ -69,6 +200,12 @@
             <point key="canvasLocation" x="-175" y="406"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="KanyeSmall" width="45" height="80"/>
+        <image name="KimSmall" width="45" height="80"/>
+        <image name="RyanSmall" width="45" height="80"/>
+        <image name="TaylorSmall" width="45" height="80"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

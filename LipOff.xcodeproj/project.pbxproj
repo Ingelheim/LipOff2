@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		800CC2C51B1B643000580747 /* CCController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800CC2C41B1B643000580747 /* CCController.swift */; };
 		80B18B961B19FA6A002F5030 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B18B951B19FA6A002F5030 /* AppDelegate.swift */; };
 		80B18B9B1B19FA6A002F5030 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80B18B991B19FA6A002F5030 /* Main.storyboard */; };
 		80B18B9D1B19FA6A002F5030 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80B18B9C1B19FA6A002F5030 /* Images.xcassets */; };
@@ -19,7 +20,6 @@
 		80B18BC01B19FB20002F5030 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B18BBF1B19FB20002F5030 /* RecordViewController.swift */; };
 		80B18BC21B19FB37002F5030 /* SelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B18BC11B19FB37002F5030 /* SelectViewController.swift */; };
 		80B18BC51B19FB52002F5030 /* LOCaptureSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B18BC41B19FB52002F5030 /* LOCaptureSession.swift */; };
-		80B18BC71B1A0B8F002F5030 /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B18BC61B1A0B8F002F5030 /* test.swift */; };
 		80B18BC91B1A1611002F5030 /* SignPainter.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80B18BC81B1A1611002F5030 /* SignPainter.ttf */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		800CC2C41B1B643000580747 /* CCController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCController.swift; sourceTree = "<group>"; };
 		80B18B901B19FA6A002F5030 /* LipOff.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LipOff.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80B18B941B19FA6A002F5030 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		80B18B951B19FA6A002F5030 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -50,7 +51,6 @@
 		80B18BBF1B19FB20002F5030 /* RecordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
 		80B18BC11B19FB37002F5030 /* SelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectViewController.swift; sourceTree = "<group>"; };
 		80B18BC41B19FB52002F5030 /* LOCaptureSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LOCaptureSession.swift; sourceTree = "<group>"; };
-		80B18BC61B1A0B8F002F5030 /* test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
 		80B18BC81B1A1611002F5030 /* SignPainter.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SignPainter.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -96,12 +96,8 @@
 				80B18BC31B19FB46002F5030 /* Video */,
 				80B18BBC1B19FAED002F5030 /* ViewController */,
 				80B18BB51B19FA89002F5030 /* UIElements */,
-				80B18B951B19FA6A002F5030 /* AppDelegate.swift */,
 				80B18B991B19FA6A002F5030 /* Main.storyboard */,
-				80B18B9C1B19FA6A002F5030 /* Images.xcassets */,
-				80B18B9E1B19FA6A002F5030 /* LaunchScreen.xib */,
 				80B18B931B19FA6A002F5030 /* Supporting Files */,
-				80B18BC61B1A0B8F002F5030 /* test.swift */,
 			);
 			path = LipOff;
 			sourceTree = "<group>";
@@ -109,6 +105,9 @@
 		80B18B931B19FA6A002F5030 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				80B18B951B19FA6A002F5030 /* AppDelegate.swift */,
+				80B18B9E1B19FA6A002F5030 /* LaunchScreen.xib */,
+				80B18B9C1B19FA6A002F5030 /* Images.xcassets */,
 				80B18B941B19FA6A002F5030 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -148,6 +147,7 @@
 				80B18BBD1B19FB09002F5030 /* LOViewController.swift */,
 				80B18BBF1B19FB20002F5030 /* RecordViewController.swift */,
 				80B18BC11B19FB37002F5030 /* SelectViewController.swift */,
+				800CC2C41B1B643000580747 /* CCController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -262,11 +262,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				800CC2C51B1B643000580747 /* CCController.swift in Sources */,
 				80B18BBE1B19FB09002F5030 /* LOViewController.swift in Sources */,
 				80B18BB91B19FABD002F5030 /* CounterLabel.swift in Sources */,
 				80B18BC01B19FB20002F5030 /* RecordViewController.swift in Sources */,
 				80B18BC21B19FB37002F5030 /* SelectViewController.swift in Sources */,
-				80B18BC71B1A0B8F002F5030 /* test.swift in Sources */,
 				80B18BC51B19FB52002F5030 /* LOCaptureSession.swift in Sources */,
 				80B18B961B19FA6A002F5030 /* AppDelegate.swift in Sources */,
 				80B18BBB1B19FAD7002F5030 /* ShareDialog.swift in Sources */,
@@ -399,6 +399,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = LipOff/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -410,6 +411,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = LipOff/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -468,6 +470,7 @@
 				80B18BB11B19FA6B002F5030 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		80B18BB21B19FA6B002F5030 /* Build configuration list for PBXNativeTarget "LipOffTests" */ = {
 			isa = XCConfigurationList;
@@ -476,6 +479,7 @@
 				80B18BB41B19FA6B002F5030 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

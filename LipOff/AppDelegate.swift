@@ -1,11 +1,3 @@
-//
-//  AppDelegate.swift
-//  TGTM
-//
-//  Created by Lukas Ingelheim on 5/14/15.
-//  Copyright (c) 2015 Lukas Ingelheim. All rights reserved.
-//
-
 import UIKit
 
 @UIApplicationMain

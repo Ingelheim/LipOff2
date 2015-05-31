@@ -65,13 +65,11 @@ class RecordViewController: TGTMViewController {
     }
     
     private func startRecording() {
-        println("start recording")
         videoManager.done()
         backButton!.enabled = false
     }
     
     private func stopRecording() {
-        println("stop recording")
         videoManager.done()
         processingModal?.hidden = false
         activityIndicator?.startAnimating()

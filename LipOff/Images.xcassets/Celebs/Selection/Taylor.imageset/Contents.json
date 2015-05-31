@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "idiom" : "universal",
+      "scale" : "1x",
+      "filename" : "5.3.10TaylorSwiftByDavidShankbone + Rectangle 184 Copy 2 + Rectangle 184 Copy + Justin Copy.png"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x",
+      "filename" : "5.3.10TaylorSwiftByDavidShankbone + Rectangle 184 Copy 2 + Rectangle 184 Copy + Justin Copy@2x.png"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x",
+      "filename" : "5.3.10TaylorSwiftByDavidShankbone + Rectangle 184 Copy 2 + Rectangle 184 Copy + Justin Copy@3x.png"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  }
+}
