@@ -10,6 +10,8 @@ class TGTMViewController : UIViewController {
     var shareDialog : ShareDialog?
     var undo : UIButton?
     var backButton : UIButton?
+    var celebName = "Kanye"
+    var ryan : UIImageView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,10 +33,14 @@ class TGTMViewController : UIViewController {
         createCountDownCounter()
     }
     
+    func changeCelebName() {
+        ryan!.image = UIImage(named: "\(celebName)CroppedAlpha")
+    }
+    
     private func createRyanImage() {
-        var ryan = UIImageView(frame: self.view.frame)
-        ryan.image = UIImage(named: "KanyeCroppedAlpha")
-        self.view.addSubview(ryan)
+        ryan = UIImageView(frame: self.view.frame)
+        ryan!.image = UIImage(named: "\(celebName)CroppedAlpha")
+        self.view.addSubview(ryan!)
     }
     
     // LOGO TOP
@@ -83,7 +89,6 @@ class TGTMViewController : UIViewController {
     private func createBottomBar() {
         createBottomBarBackground()
         createButtomDivider()
-        createWebLinkView()
     }
     
     private func createButtomDivider() {
@@ -96,12 +101,6 @@ class TGTMViewController : UIViewController {
         var bottomBarBackground = UIView(frame: CGRect(x: 0, y: self.view.frame.maxY - 60, width: self.view.frame.width, height: 60))
         bottomBarBackground.backgroundColor = lipOffRed
         self.view.addSubview(bottomBarBackground)
-    }
-    
-    private func createWebLinkView() {
-        var webLink = UIImageView(frame: CGRect(x: self.view.frame.maxX - 110, y: self.view.frame.maxY - 92, width: 98, height: 18))
-        webLink.image = UIImage(named: "Weblink")
-        self.view.addSubview(webLink)
     }
     
     // RECORD BUTTON

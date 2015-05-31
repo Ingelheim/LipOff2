@@ -9,7 +9,7 @@ class RecordButton : UIButton {
         .BS_NORMAL : "RecordButtonNormal",
         .BS_COUNTDOWN : "RecordButtonCountdown",
         .BS_RECORDING : "RecordButtonRecording",
-        .BS_PLAY : "RecordButtonPlay"
+        .BS_PLAY : ""
     ]
     var currentState : ButtonState = .BS_NORMAL
     var countDownLabel : CounterLabel?

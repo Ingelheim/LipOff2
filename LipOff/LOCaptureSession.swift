@@ -12,6 +12,7 @@ class VideoManager: NSObject, AVCaptureFileOutputRecordingDelegate {
     var playing = false
     var button : UIButton?
     var savedCallback : (() -> Void)?
+    var celebName = "Kanye"
     
     func setup() {
         captureSession.sessionPreset = AVCaptureSessionPresetHigh
@@ -74,7 +75,11 @@ class VideoManager: NSObject, AVCaptureFileOutputRecordingDelegate {
         
         assetExport.exportAsynchronouslyWithCompletionHandler({() -> Void in
             UISaveVideoAtPathToSavedPhotosAlbum(assetExport.outputURL.relativePath, self, nil, nil)
-            self.savedCallback!()
+            println("done")
+            dispatch_async(dispatch_get_main_queue()) {
+                self.savedCallback!()
+            }
+            
         })
     }
     
@@ -106,7 +111,7 @@ class VideoManager: NSObject, AVCaptureFileOutputRecordingDelegate {
     
     private func createOverlayLayer(width: CGFloat, heigth: CGFloat) -> CALayer {
         var layer = CALayer()
-        var image = UIImage(named: "KanyeCroppedAlphaFlip")
+        var image = UIImage(named: "\(celebName)CroppedAlphaFlip")
         
         layer.frame = CGRectMake(0, 0, width, heigth)
         layer.contents = image?.CGImage
@@ -117,7 +122,7 @@ class VideoManager: NSObject, AVCaptureFileOutputRecordingDelegate {
         var layer = CALayer()
         var image = UIImage(named: "Weblink_Red")
         
-        layer.frame = CGRect(x: 30, y: 30, width: 280, height: 85)
+        layer.frame = CGRect(x: 30, y: 180, width: 280, height: 85)
         
         layer.contents = image?.CGImage
         return layer

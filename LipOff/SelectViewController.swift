@@ -2,6 +2,7 @@ import UIKit
 
 class SelectViewController: UIViewController {
     let lipOffRed = UIColor(red: 0.937, green: 0.333, blue: 0.31, alpha: 1)
+    var celebName = "Kanye"
     
     override func prefersStatusBarHidden() -> Bool {
         return true
@@ -51,6 +52,35 @@ class SelectViewController: UIViewController {
         self.performSegueWithIdentifier("goToRecord", sender: self)
     }
     
+    func selectKanye() {
+        celebName = "Kanye"
+        goToRecord()
+    }
+    
+    func selectKim() {
+        celebName = "Kim"
+        goToRecord()
+    }
+    
+    func selectTaylor() {
+        celebName = "Taylor"
+        goToRecord()
+    }
+    
+    func selectRyan() {
+        celebName = "Ryan"
+        goToRecord()
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if(segue.identifier == "goToRecord") {
+            
+            var yourNextViewController = (segue.destinationViewController as! RecordViewController)
+            yourNextViewController.celebName = self.celebName
+        }
+    }
+    
     private func createUpperLeftTyle() {
         var height = (self.view.frame.height - 60) / 2
         var upperLeftTyle = UIImageView(frame: CGRect(x: 0, y: 60, width: self.view.frame.width / 2, height: height))
@@ -58,7 +88,7 @@ class SelectViewController: UIViewController {
         upperLeftTyle.layer.borderColor = UIColor.whiteColor().CGColor
         upperLeftTyle.layer.borderWidth = 3
         
-        upperLeftTyle.addGestureRecognizer(UITapGestureRecognizer(target: self, action: Selector("goToRecord")))
+        upperLeftTyle.addGestureRecognizer(UITapGestureRecognizer(target: self, action: Selector("selectKanye")))
         upperLeftTyle.userInteractionEnabled = true
         
         self.view.addSubview(upperLeftTyle)
@@ -71,7 +101,7 @@ class SelectViewController: UIViewController {
         upperRightTyle.layer.borderColor = UIColor.whiteColor().CGColor
         upperRightTyle.layer.borderWidth = 3
         
-        upperRightTyle.addGestureRecognizer(UITapGestureRecognizer(target: self, action: Selector("goToRecord")))
+        upperRightTyle.addGestureRecognizer(UITapGestureRecognizer(target: self, action: Selector("selectKim")))
         upperRightTyle.userInteractionEnabled = true
         
         self.view.addSubview(upperRightTyle)
@@ -84,7 +114,7 @@ class SelectViewController: UIViewController {
         lowerLeftTyle.layer.borderColor = UIColor.whiteColor().CGColor
         lowerLeftTyle.layer.borderWidth = 3
         
-        lowerLeftTyle.addGestureRecognizer(UITapGestureRecognizer(target: self, action: Selector("goToRecord")))
+        lowerLeftTyle.addGestureRecognizer(UITapGestureRecognizer(target: self, action: Selector("selectTaylor")))
         lowerLeftTyle.userInteractionEnabled = true
         
         self.view.addSubview(lowerLeftTyle)
@@ -97,7 +127,7 @@ class SelectViewController: UIViewController {
         lowerRightTyle.layer.borderColor = UIColor.whiteColor().CGColor
         lowerRightTyle.layer.borderWidth = 3
         
-        lowerRightTyle.addGestureRecognizer(UITapGestureRecognizer(target: self, action: Selector("goToRecord")))
+        lowerRightTyle.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "selectRyan"))
         lowerRightTyle.userInteractionEnabled = true
         
         self.view.addSubview(lowerRightTyle)

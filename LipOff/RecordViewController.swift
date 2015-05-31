@@ -16,11 +16,17 @@ class RecordViewController: TGTMViewController {
         createDoneModal()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        changeCelebName()
+    }
+    
     func initVideo() {
         var video = UIView(frame: self.view.frame)
         self.view.addSubview(video)
         self.view.sendSubviewToBack(video)
         videoManager.savedCallback = savedVideo
+        videoManager.celebName = celebName
         videoManager.setup()
         videoManager.startCapturing()
         var previewLayer = AVCaptureVideoPreviewLayer(session: videoManager.captureSession)
