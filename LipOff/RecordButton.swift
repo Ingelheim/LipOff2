@@ -14,7 +14,7 @@ class RecordButton : UIButton {
     var currentState : ButtonState = .BS_NORMAL
     var countDownLabel : CounterLabel?
     var countdownTime = 3
-    var recordCount = 5
+    var recordCount = 10
     var recordStartCallback : (() -> Void)?
     var recordDoneCallback : (() -> Void)?
     var bigLabel : UILabel?
@@ -66,13 +66,14 @@ class RecordButton : UIButton {
         recordStartCallback?()
         bigLabel?.hidden = true
         countDownLabel?.alsoUpdate = nil
-        self.userInteractionEnabled = false
+        self.userInteractionEnabled = true
         countDownLabel = countDownLabel?.withCount(self.recordCount)
         countDownLabel?.startCounter(handleClick)
     }
     
     private func stopRecording() {
-        
+        countDownLabel?.hidden = true
+        countDownLabel = nil
         recordDoneCallback?()
     }
 }
