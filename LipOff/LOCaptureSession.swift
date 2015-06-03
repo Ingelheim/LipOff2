@@ -1,5 +1,6 @@
 import UIKit
 import AVFoundation
+import MediaPlayer
 
 class VideoManager: NSObject, AVCaptureFileOutputRecordingDelegate {
     var captureSession = AVCaptureSession()
@@ -11,7 +12,7 @@ class VideoManager: NSObject, AVCaptureFileOutputRecordingDelegate {
     var parentLayer : CALayer?
     var playing = false
     var button : UIButton?
-    var savedCallback : (() -> Void)?
+    var savedCallback : ((url: NSURL) -> Void)?
     var celebName = "Kanye"
     
     func setup() {
@@ -70,14 +71,14 @@ class VideoManager: NSObject, AVCaptureFileOutputRecordingDelegate {
         let components = calendar.components(.CalendarUnitHour | .CalendarUnitMinute, fromDate: date)
         let hour = components.hour
         let minutes = components.minute
-        assetExport.outputURL = NSURL(fileURLWithPath: "\(NSTemporaryDirectory())\(date)\(hour)\(minutes)\(arc4random()).MOV")
+        let seconds = components.second
+        assetExport.outputURL = NSURL(fileURLWithPath: "\(NSTemporaryDirectory())LipOffMovie_\(date)\(hour)\(minutes)\(seconds).MOV")
         
         assetExport.exportAsynchronouslyWithCompletionHandler({() -> Void in
             UISaveVideoAtPathToSavedPhotosAlbum(assetExport.outputURL.relativePath, self, nil, nil)
             dispatch_async(dispatch_get_main_queue()) {
-                self.savedCallback!()
+                self.savedCallback!(url: assetExport.outputURL)
             }
-            
         })
     }
     
@@ -98,7 +99,7 @@ class VideoManager: NSObject, AVCaptureFileOutputRecordingDelegate {
     
     func done () {
         if (!playing) {
-            output.startRecordingToOutputFileURL(NSURL(fileURLWithPath: "\(NSTemporaryDirectory())test.MOV"), recordingDelegate: self)
+            output.startRecordingToOutputFileURL(NSURL(fileURLWithPath: "\(NSTemporaryDirectory())temporaryLipOffFile.MOV"), recordingDelegate: self)
             playing = true
         } else {
             captureSession.stopRunning()

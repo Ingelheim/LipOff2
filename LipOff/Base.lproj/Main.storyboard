@@ -21,7 +21,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="411" y="406"/>
+            <point key="canvasLocation" x="370" y="401"/>
         </scene>
         <!--Controller-->
         <scene sceneID="cp1-yD-NTg">
@@ -168,6 +168,18 @@
             </objects>
             <point key="canvasLocation" x="411" y="1123"/>
         </scene>
+        <!--AV Player View Controller-->
+        <scene sceneID="BvY-Fa-hZY">
+            <objects>
+                <avPlayerViewController videoGravity="AVLayerVideoGravityResizeAspect" id="lRb-AI-mB3" customClass="VideoPlayer" customModule="LipOff" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="ST9-nD-R3A">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="LOU-w3-vVx"/>
+                    </navigationItem>
+                </avPlayerViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d3T-oc-Gj2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="991" y="1115"/>
+        </scene>
         <!--Record View Controller-->
         <scene sceneID="RnN-DZ-6f5">
             <objects>
@@ -178,6 +190,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="23k-FS-7vN"/>
+                    <connections>
+                        <segue destination="lRb-AI-mB3" kind="modal" identifier="playVideo" id="s0t-7m-N32"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HOy-iD-9QK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

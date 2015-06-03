@@ -1,4 +1,5 @@
 import UIKit
+import AVKit
 import AVFoundation
 
 class RecordViewController: TGTMViewController {
@@ -6,6 +7,7 @@ class RecordViewController: TGTMViewController {
     var doneModal : UIImageView?
     var activityIndicator : UIActivityIndicatorView?
     var processingModal : UIImageView?
+    var videoURL : NSURL?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +21,16 @@ class RecordViewController: TGTMViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         changeCelebName()
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue,
+        sender: AnyObject?) {
+            if (segue.identifier == "playVideo") {
+                let destination = segue.destinationViewController as!
+                VideoPlayer
+                destination.showsPlaybackControls = true
+                destination.player = AVPlayer(URL: videoURL)
+            }
     }
     
     func initVideo() {
@@ -64,6 +76,10 @@ class RecordViewController: TGTMViewController {
         self.view.addSubview(processingModal!)
     }
     
+    func playVideo() {
+        
+    }
+    
     private func startRecording() {
         videoManager.done()
         backButton!.enabled = false
@@ -76,9 +92,12 @@ class RecordViewController: TGTMViewController {
         backButton!.enabled = true
     }
     
-    private func savedVideo() {
+    private func savedVideo(url: NSURL) {
+        videoURL = url
         processingModal?.hidden = true
         activityIndicator?.stopAnimating()
         doneModal?.hidden = false
+        
+        performSegueWithIdentifier("playVideo", sender: self)
     }
 }
