@@ -1,6 +1,7 @@
 import UIKit
 import AVKit
 import AVFoundation
+import Parse
 
 class RecordViewController: TGTMViewController {
     var videoManager = VideoManager()
@@ -21,6 +22,7 @@ class RecordViewController: TGTMViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         changeCelebName()
+        sendCelebritySelected(celebName)
     }
     
     func initVideo() {
@@ -83,13 +85,15 @@ class RecordViewController: TGTMViewController {
     private func startRecording() {
         videoManager.done()
         backButton!.enabled = false
+        sendVideoStarted(celebName)
     }
     
-    private func stopRecording() {
+    private func stopRecording(secondsLeft: Int) {
         videoManager.done()
         processingModal?.hidden = false
         activityIndicator?.startAnimating()
         backButton!.enabled = true
+        sendVideoRecorded(celebName, secondsLeft: secondsLeft)
     }
     
     private func savedVideo(url: NSURL) {
@@ -97,7 +101,24 @@ class RecordViewController: TGTMViewController {
         processingModal?.hidden = true
         activityIndicator?.stopAnimating()
         doneModal?.hidden = false
+        sendVideoSaved(celebName)
         
         performSegueWithIdentifier("playVideo", sender: self)
+    }
+    
+    private func sendCelebritySelected(name : String) {
+        PFAnalytics.trackEventInBackground("celebritySelected", dimensions: ["celebrityName" : name], block: nil)
+    }
+    
+    private func sendVideoStarted(name : String) {
+        PFAnalytics.trackEventInBackground("videoStarted", dimensions: ["celebrityName" : name], block: nil)
+    }
+    
+    private func sendVideoRecorded(name : String, secondsLeft : Int) {
+        PFAnalytics.trackEventInBackground("videoRecorded", dimensions: ["celebrityName" : name, "secondsLeft" : "\(secondsLeft)"], block: nil)
+    }
+    
+    private func sendVideoSaved(name : String) {
+        PFAnalytics.trackEventInBackground("videoSaved", dimensions: ["celebrityName" : name], block: nil)
     }
 }

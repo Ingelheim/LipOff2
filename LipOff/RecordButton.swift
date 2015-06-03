@@ -16,7 +16,7 @@ class RecordButton : UIButton {
     var countdownTime = 3
     var recordCount = 10
     var recordStartCallback : (() -> Void)?
-    var recordDoneCallback : (() -> Void)?
+    var recordDoneCallback : ((secondsLeft: Int) -> Void)?
     var bigLabel : UILabel?
     
     override init(frame: CGRect) {
@@ -72,8 +72,8 @@ class RecordButton : UIButton {
     }
     
     private func stopRecording() {
+        recordDoneCallback?(secondsLeft: countDownLabel!.count)
         countDownLabel?.hidden = true
         countDownLabel = nil
-        recordDoneCallback?()
     }
 }

@@ -77,7 +77,6 @@ class SelectViewController: UIViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
         if(segue.identifier == "goToRecord") {
             
             var yourNextViewController = (segue.destinationViewController as! RecordViewController)
@@ -85,55 +84,35 @@ class SelectViewController: UIViewController {
         }
     }
     
+    private func createRectWithImageAndRect(celebName : String, rect : CGRect) -> UIImageView {
+        var tyle = UIImageView(frame: rect)
+        tyle.image = UIImage(named: celebName)
+        tyle.layer.borderColor = UIColor.whiteColor().CGColor
+        tyle.layer.borderWidth = 3
+        tyle.userInteractionEnabled = true
+        
+        tyle.addGestureRecognizer(UITapGestureRecognizer(target: self, action: Selector("select\(celebName)")))
+        
+        return tyle
+    }
+    
     private func createUpperLeftTyle() {
         var height = (self.view.frame.height - 60) / 2
-        var upperLeftTyle = UIImageView(frame: CGRect(x: 0, y: 60, width: self.view.frame.width / 2, height: height))
-        upperLeftTyle.image = UIImage(named: "Kanye")
-        upperLeftTyle.layer.borderColor = UIColor.whiteColor().CGColor
-        upperLeftTyle.layer.borderWidth = 3
-        
-        upperLeftTyle.addGestureRecognizer(UITapGestureRecognizer(target: self, action: Selector("selectKanye")))
-        upperLeftTyle.userInteractionEnabled = true
-        
-        self.view.addSubview(upperLeftTyle)
+        self.view.addSubview(createRectWithImageAndRect("Kanye", rect: CGRect(x: 0, y: 60, width: self.view.frame.width / 2, height: height)))
     }
     
     private func createUpperRightTyle() {
         var height = (self.view.frame.height - 60) / 2
-        var upperRightTyle = UIImageView(frame: CGRect(x: self.view.frame.midX, y: 60, width: self.view.frame.width / 2, height: height))
-        upperRightTyle.image = UIImage(named: "Kim")
-        upperRightTyle.layer.borderColor = UIColor.whiteColor().CGColor
-        upperRightTyle.layer.borderWidth = 3
-        
-        upperRightTyle.addGestureRecognizer(UITapGestureRecognizer(target: self, action: Selector("selectKim")))
-        upperRightTyle.userInteractionEnabled = true
-        
-        self.view.addSubview(upperRightTyle)
+        self.view.addSubview(createRectWithImageAndRect("Kim", rect: CGRect(x: self.view.frame.midX, y: 60, width: self.view.frame.width / 2, height: height)))
     }
     
     private func createLowerLeftTyle() {
         var height = (self.view.frame.height - 60) / 2
-        var lowerLeftTyle = UIImageView(frame: CGRect(x: 0, y: 60 + height, width: self.view.frame.width / 2, height: height))
-        lowerLeftTyle.image = UIImage(named: "Taylor")
-        lowerLeftTyle.layer.borderColor = UIColor.whiteColor().CGColor
-        lowerLeftTyle.layer.borderWidth = 3
-        
-        lowerLeftTyle.addGestureRecognizer(UITapGestureRecognizer(target: self, action: Selector("selectTaylor")))
-        lowerLeftTyle.userInteractionEnabled = true
-        
-        self.view.addSubview(lowerLeftTyle)
+        self.view.addSubview(createRectWithImageAndRect("Taylor", rect: CGRect(x: 0, y: 60 + height, width: self.view.frame.width / 2, height: height)))
     }
     
     private func createLowerRightTyle() {
         var height = (self.view.frame.height - 60) / 2
-        var lowerRightTyle = UIImageView(frame: CGRect(x: self.view.frame.midX, y: 60 + height, width: self.view.frame.width / 2, height: height))
-        lowerRightTyle.image = UIImage(named: "RyanG")
-        lowerRightTyle.layer.borderColor = UIColor.whiteColor().CGColor
-        lowerRightTyle.layer.borderWidth = 3
-        
-        lowerRightTyle.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "selectRyan"))
-        lowerRightTyle.userInteractionEnabled = true
-        
-        self.view.addSubview(lowerRightTyle)
+        self.view.addSubview(createRectWithImageAndRect("Ryan", rect: CGRect(x: self.view.frame.midX, y: 60 + height, width: self.view.frame.width / 2, height: height)))
     }
 }
