@@ -23,16 +23,6 @@ class RecordViewController: TGTMViewController {
         changeCelebName()
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue,
-        sender: AnyObject?) {
-            if (segue.identifier == "playVideo") {
-                let destination = segue.destinationViewController as!
-                VideoPlayer
-                destination.showsPlaybackControls = true
-                destination.player = AVPlayer(URL: videoURL)
-            }
-    }
-    
     func initVideo() {
         var video = UIView(frame: self.view.frame)
         self.view.addSubview(video)
@@ -76,8 +66,18 @@ class RecordViewController: TGTMViewController {
         self.view.addSubview(processingModal!)
     }
     
-    func playVideo() {
-        
+    override func prepareForSegue(segue: UIStoryboardSegue,
+        sender: AnyObject?) {
+            if (segue.identifier == "playVideo") {
+                let destination = segue.destinationViewController as!
+                VideoPlayer
+                destination.showsPlaybackControls = true
+                destination.player = AVPlayer(URL: videoURL)
+            }
+    }
+    
+    func goToCC() {
+        performSegueWithIdentifier("creativeCommons", sender: self)
     }
     
     private func startRecording() {

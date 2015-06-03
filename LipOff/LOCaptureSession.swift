@@ -16,7 +16,7 @@ class VideoManager: NSObject, AVCaptureFileOutputRecordingDelegate {
     var celebName = "Kanye"
     
     func setup() {
-        captureSession.sessionPreset = AVCaptureSessionPresetHigh
+        captureSession.sessionPreset = AVCaptureSessionPreset1280x720
         setUpCaptureDeviceVideo()
     }
     
@@ -49,21 +49,18 @@ class VideoManager: NSObject, AVCaptureFileOutputRecordingDelegate {
         var asset = AVAsset.assetWithURL(outputFileURL) as! AVAsset
         var composition = AVMutableVideoComposition(propertiesOfAsset: asset)
         
-        imageLayer =  createOverlayLayer(750, heigth: 1334)
-        parentLayer = createParentLayer(750, heigth: 1334)
-        videoLayer = createParentLayer(750, heigth: 1334)
+        imageLayer =  createOverlayLayer(720, heigth: 1280)
+        parentLayer = createParentLayer(720, heigth: 1280)
+        videoLayer = createParentLayer(720, heigth: 1280)
         
         parentLayer?.addSublayer(videoLayer)
         parentLayer?.addSublayer(imageLayer)
-        parentLayer?.addSublayer(createWebViewLayer(750, heigth: 1334))
+        parentLayer?.addSublayer(createWebViewLayer(720, heigth: 1280))
         
         composition.renderScale = 1.0
-        
-        videoLayer?.addSublayer(test(750, heigth: 1334))
-        
         composition.animationTool = AVVideoCompositionCoreAnimationTool(postProcessingAsVideoLayer: videoLayer, inLayer: parentLayer)
         
-        var assetExport = AVAssetExportSession(asset: asset, presetName: AVAssetExportPresetHighestQuality as String)
+        var assetExport = AVAssetExportSession(asset: asset, presetName: AVAssetExportPreset1280x720 as String)
         assetExport.videoComposition = composition
         assetExport.outputFileType = AVFileTypeMPEG4
         let date = NSDate()

@@ -16,7 +16,6 @@
                     <navigationItem key="navigationItem" id="1U5-au-vN4"/>
                     <connections>
                         <segue destination="RlW-OR-MW7" kind="push" identifier="goToRecord" id="jRS-YK-SAW"/>
-                        <segue destination="2tT-4B-zJj" kind="push" identifier="creativeCommons" id="xQg-95-4a8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -55,11 +54,10 @@
                                     <outletCollection property="gestureRecognizers" destination="JRQ-mE-gKH" appends="YES" id="ym3-1B-VIL"/>
                                 </connections>
                             </imageView>
-                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lsh-vj-qVX">
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot;Kanye West at the 2009 Tribeca Film Festival&quot; by David Shankbone is licenced under CC BY 3.0" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lsh-vj-qVX">
                                 <rect key="frame" x="97" y="83" width="207" height="87"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
-                                <string key="text">"Kanye West at the 2009 Tribeca Film Festival" by David Shankbone is licenced under CC BY 3.0. The mouth was cut out from the original.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -71,7 +69,7 @@
                                 <rect key="frame" x="97" y="175" width="207" height="94"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
-                                <string key="text">"Kim Kardashian West,Parramatta Westfield Sydney Australia" by Eva Rinaldi Celebrity and Live Music Photographer is licenced under CC BY-SA 2.0. The mouth was cut out from the original.</string>
+                                <string key="text">"Kim Kardashian West,Parramatta Westfield Sydney Australia" by Eva Rinaldi Celebrity and Live Music Photographer is licenced under CC BY-SA 2.0</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -79,11 +77,10 @@
                                     <outletCollection property="gestureRecognizers" destination="uK6-VC-Gdu" appends="YES" id="OKn-WV-DBy"/>
                                 </connections>
                             </label>
-                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8eR-EO-F5B">
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot;Taylor Swift at the premiere for Hannah Montana: The Movie.&quot; by Angela George is licenced under CC BY-SA 3.0" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8eR-EO-F5B">
                                 <rect key="frame" x="97" y="273" width="207" height="87"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
-                                <string key="text">"Taylor Swift at the premiere for Hannah Montana: The Movie." by Angela George is licenced under CC BY-SA 3.0. The mouth was cut out from the original.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -91,11 +88,10 @@
                                     <outletCollection property="gestureRecognizers" destination="73u-t1-n3a" appends="YES" id="MD0-cV-nDr"/>
                                 </connections>
                             </label>
-                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QhX-IH-Tp7">
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot;El actor Ryan Gosling en el Festival de Cine de Cannes&quot; by Raffi Asdourian is licenced under CC BY 2.0" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QhX-IH-Tp7">
                                 <rect key="frame" x="97" y="368" width="207" height="87"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
-                                <string key="text">"El actor Ryan Gosling en el Festival de Cine de Cannes" by Raffi Asdourian is licenced under CC BY 2.0. The mouth was cut out from the original.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -106,7 +102,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="e1D-QD-Wrx">
                                 <rect key="frame" x="16" y="463" width="288" height="105"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <string key="text">And special thanks to Kanye West, Kim Kardashian, Taylor Swift and Ryan Gosling for being born and being awesome! This app and produced content is licenced under CC BY 3.0. As we don't create any content ourselfes, we distance us from any videos produced with this app. Please be nice.</string>
+                                <string key="text">And special thanks to Kanye West, Kim Kardashian, Taylor Swift and Ryan Gosling for being born and being awesome! As we don't create any content ourselfes, we distance us from any videos produced with this app. Please be nice.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -166,7 +162,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="411" y="1123"/>
+            <point key="canvasLocation" x="1511" y="406"/>
         </scene>
         <!--AV Player View Controller-->
         <scene sceneID="BvY-Fa-hZY">
@@ -192,6 +188,7 @@
                     <navigationItem key="navigationItem" id="23k-FS-7vN"/>
                     <connections>
                         <segue destination="lRb-AI-mB3" kind="modal" identifier="playVideo" id="s0t-7m-N32"/>
+                        <segue destination="2tT-4B-zJj" kind="push" identifier="creativeCommons" id="rrM-5E-x18"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HOy-iD-9QK" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -24,11 +24,6 @@ class SelectViewController: UIViewController {
         var logoTopBar = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 60))
         logoTopBar.backgroundColor = lipOffRed
         
-        var ccButton = UIButton(frame: CGRect(x: self.view.frame.maxX - 50, y: 20, width: 30, height: 30))
-        ccButton.setImage(UIImage(named: "creative-commons"), forState: UIControlState.Normal)
-        ccButton.addTarget(self, action: Selector("goToCC"), forControlEvents: UIControlEvents.TouchDown)
-        logoTopBar.addSubview(ccButton)
-        
         self.view.addSubview(logoTopBar)
     }
     

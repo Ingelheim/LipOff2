@@ -89,6 +89,7 @@ class TGTMViewController : UIViewController {
     private func createBottomBar() {
         createBottomBarBackground()
         createButtomDivider()
+        createCCButton()
     }
     
     private func createButtomDivider() {
@@ -101,6 +102,13 @@ class TGTMViewController : UIViewController {
         var bottomBarBackground = UIView(frame: CGRect(x: 0, y: self.view.frame.maxY - 60, width: self.view.frame.width, height: 60))
         bottomBarBackground.backgroundColor = lipOffRed
         self.view.addSubview(bottomBarBackground)
+    }
+    
+    private func createCCButton() {
+        var ccButton = UIButton(frame: CGRect(x: self.view.frame.maxX - 40, y: self.view.frame.maxY - 100, width: 30, height: 30))
+        ccButton.setImage(UIImage(named: "info"), forState: UIControlState.Normal)
+        ccButton.addTarget(self, action: Selector("goToCC"), forControlEvents: UIControlEvents.TouchDown)
+        self.view.addSubview(ccButton)
     }
     
     // RECORD BUTTON
