@@ -3,13 +3,24 @@ import UIKit
 class CCController : UIViewController {
     let lipOffRed = UIColor(red: 0.937, green: 0.333, blue: 0.31, alpha: 1)
     
+    @IBOutlet weak var licencesView: UIImageView!
+    
     override func prefersStatusBarHidden() -> Bool {
         return true
     }
     
+    override func viewWillAppear(animated: Bool) {
+        licencesView.image = ImageRepository.sharedRepo.licences
+    }
+    
+    private func getDataFromUrl(urL:NSURL, completion: ((data: NSData?) -> Void)) {
+        NSURLSession.sharedSession().dataTaskWithURL(urL) { (data, response, error) in
+            completion(data: data)
+            }.resume()
+    }
+    
     override func viewDidLoad() {
         createLogoBar()
-        self.view.backgroundColor = lipOffRed
         self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
@@ -46,29 +57,5 @@ class CCController : UIViewController {
         var lipOffLogo = UIImageView(frame: CGRect(x: Int(xValue), y: 8, width: Int(width), height: Int(height)))
         lipOffLogo.image = UIImage(named: "Logo")
         self.view.addSubview(lipOffLogo)
-    }
-    
-    @IBAction func linkKanye(sender: AnyObject) {
-        if let url = NSURL(string: "http://de.wikipedia.org/wiki/Kanye_West#/media/File:Kanye_West_at_the_2009_Tribeca_Film_Festival.jpg") {
-            UIApplication.sharedApplication().openURL(url)
-        }
-    }
-    
-    @IBAction func linkKim(sender: AnyObject) {
-        if let url = NSURL(string: "https://www.flickr.com/photos/58820009@N05/15035346840/") {
-            UIApplication.sharedApplication().openURL(url)
-        }
-    }
-    
-    @IBAction func linkTaylor(sender: AnyObject) {
-        if let url = NSURL(string: "http://de.wikipedia.org/wiki/Taylor_Swift#/media/File:TaylorSwiftApr09.jpg") {
-            UIApplication.sharedApplication().openURL(url)
-        }
-    }
-    
-    @IBAction func linkRyan(sender: AnyObject) {
-        if let url = NSURL(string: "https://www.flickr.com/photos/zaffi/13522475605/in/set-72157627446505460") {
-            UIApplication.sharedApplication().openURL(url)
-        }
     }
 }

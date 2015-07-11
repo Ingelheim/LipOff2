@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="CelelSelectCollectionViewCell" customModule="LipOff" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="160" height="250"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="160" height="250"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Loading" translatesAutoresizingMaskIntoConstraints="NO" id="e3X-RL-60t">
+                        <rect key="frame" x="0.0" y="0.0" width="160" height="250"/>
+                    </imageView>
+                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="QsZ-O8-vXV">
+                        <rect key="frame" x="70" y="115" width="20" height="20"/>
+                    </activityIndicatorView>
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Loading Error" translatesAutoresizingMaskIntoConstraints="NO" id="hiv-hw-NKw">
+                        <rect key="frame" x="8" y="118" width="144" height="29"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="hiv-hw-NKw" secondAttribute="height" multiplier="36:5" constant="-64.800000000000011" id="xSc-xG-Jqg"/>
+                        </constraints>
+                    </imageView>
+                    <imageView hidden="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="reload" translatesAutoresizingMaskIntoConstraints="NO" id="nH5-ZO-uKB">
+                        <rect key="frame" x="53" y="171" width="55" height="55"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="nH5-ZO-uKB" secondAttribute="height" multiplier="1:1" id="7mS-wb-gFw"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="nH5-ZO-uKB" secondAttribute="bottom" constant="24" id="H3N-N5-2M3"/>
+                <constraint firstAttribute="bottom" secondItem="e3X-RL-60t" secondAttribute="bottom" id="IUC-7H-Qy0"/>
+                <constraint firstItem="e3X-RL-60t" firstAttribute="centerX" secondItem="hiv-hw-NKw" secondAttribute="centerX" id="KyK-4Y-VW3"/>
+                <constraint firstItem="QsZ-O8-vXV" firstAttribute="centerY" secondItem="e3X-RL-60t" secondAttribute="centerY" id="Pcv-7h-kCB"/>
+                <constraint firstItem="nH5-ZO-uKB" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="53" id="VL8-R4-eO9"/>
+                <constraint firstItem="e3X-RL-60t" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Xbf-cE-nzC"/>
+                <constraint firstAttribute="trailing" secondItem="e3X-RL-60t" secondAttribute="trailing" id="eGH-gw-GVo"/>
+                <constraint firstItem="e3X-RL-60t" firstAttribute="centerY" secondItem="hiv-hw-NKw" secondAttribute="centerY" constant="-7.5" id="fdv-yW-fFE"/>
+                <constraint firstItem="hiv-hw-NKw" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="glk-Ky-72k"/>
+                <constraint firstAttribute="trailing" secondItem="hiv-hw-NKw" secondAttribute="trailing" constant="8" id="iWT-LJ-cy6"/>
+                <constraint firstItem="QsZ-O8-vXV" firstAttribute="centerX" secondItem="e3X-RL-60t" secondAttribute="centerX" id="jYx-qO-hYT"/>
+                <constraint firstItem="e3X-RL-60t" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="jpO-Qi-sdP"/>
+                <constraint firstAttribute="trailing" secondItem="nH5-ZO-uKB" secondAttribute="trailing" constant="52" id="xq4-bp-yML"/>
+            </constraints>
+            <size key="customSize" width="176" height="250"/>
+            <connections>
+                <outlet property="activity" destination="QsZ-O8-vXV" id="bA2-TE-v24"/>
+                <outlet property="errorLabel" destination="hiv-hw-NKw" id="oqT-cQ-wfE"/>
+                <outlet property="imageView" destination="e3X-RL-60t" id="Gc8-PC-7ZS"/>
+                <outlet property="reloadButton" destination="nH5-ZO-uKB" id="LbE-Ra-mFV"/>
+            </connections>
+            <point key="canvasLocation" x="293" y="333"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="Loading" width="183" height="285"/>
+        <image name="Loading Error" width="208" height="39"/>
+        <image name="reload" width="90" height="90"/>
+    </resources>
+</document>

@@ -22,6 +22,9 @@
 		802676481B1FAA910001C1D3 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 802676471B1FAA910001C1D3 /* libsqlite3.dylib */; };
 		8026764A1B1FAAC60001C1D3 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 802676491B1FAAC60001C1D3 /* Bolts.framework */; };
 		8026764C1B1FAAD20001C1D3 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8026764B1B1FAAD20001C1D3 /* Parse.framework */; };
+		809A61C81B51640800E01B8A /* CelelSelectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809A61C61B51640800E01B8A /* CelelSelectCollectionViewCell.swift */; };
+		809A61C91B51640800E01B8A /* CelelSelectCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 809A61C71B51640800E01B8A /* CelelSelectCollectionViewCell.xib */; };
+		809A61CB1B51649200E01B8A /* SelectC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809A61CA1B51649200E01B8A /* SelectC.swift */; };
 		80B18B961B19FA6A002F5030 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B18B951B19FA6A002F5030 /* AppDelegate.swift */; };
 		80B18B9B1B19FA6A002F5030 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80B18B991B19FA6A002F5030 /* Main.storyboard */; };
 		80B18B9D1B19FA6A002F5030 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80B18B9C1B19FA6A002F5030 /* Images.xcassets */; };
@@ -32,9 +35,9 @@
 		80B18BBB1B19FAD7002F5030 /* ShareDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B18BBA1B19FAD7002F5030 /* ShareDialog.swift */; };
 		80B18BBE1B19FB09002F5030 /* LOViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B18BBD1B19FB09002F5030 /* LOViewController.swift */; };
 		80B18BC01B19FB20002F5030 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B18BBF1B19FB20002F5030 /* RecordViewController.swift */; };
-		80B18BC21B19FB37002F5030 /* SelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B18BC11B19FB37002F5030 /* SelectViewController.swift */; };
 		80B18BC51B19FB52002F5030 /* LOCaptureSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B18BC41B19FB52002F5030 /* LOCaptureSession.swift */; };
 		80B18BC91B1A1611002F5030 /* SignPainter.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80B18BC81B1A1611002F5030 /* SignPainter.ttf */; };
+		80C7C4121B446D1C0059D6F9 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C7C4111B446D1C0059D6F9 /* ImageLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +66,9 @@
 		802676471B1FAA910001C1D3 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		802676491B1FAAC60001C1D3 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		8026764B1B1FAAD20001C1D3 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		809A61C61B51640800E01B8A /* CelelSelectCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CelelSelectCollectionViewCell.swift; sourceTree = "<group>"; };
+		809A61C71B51640800E01B8A /* CelelSelectCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CelelSelectCollectionViewCell.xib; sourceTree = "<group>"; };
+		809A61CA1B51649200E01B8A /* SelectC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectC.swift; sourceTree = "<group>"; };
 		80B18B901B19FA6A002F5030 /* LipOff.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LipOff.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80B18B941B19FA6A002F5030 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		80B18B951B19FA6A002F5030 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -77,9 +83,9 @@
 		80B18BBA1B19FAD7002F5030 /* ShareDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareDialog.swift; sourceTree = "<group>"; };
 		80B18BBD1B19FB09002F5030 /* LOViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LOViewController.swift; sourceTree = "<group>"; };
 		80B18BBF1B19FB20002F5030 /* RecordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
-		80B18BC11B19FB37002F5030 /* SelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectViewController.swift; sourceTree = "<group>"; };
 		80B18BC41B19FB52002F5030 /* LOCaptureSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LOCaptureSession.swift; sourceTree = "<group>"; };
 		80B18BC81B1A1611002F5030 /* SignPainter.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SignPainter.ttf; sourceTree = "<group>"; };
+		80C7C4111B446D1C0059D6F9 /* ImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +205,9 @@
 				80B18BC81B1A1611002F5030 /* SignPainter.ttf */,
 				80B18BB81B19FABD002F5030 /* CounterLabel.swift */,
 				80B18BBA1B19FAD7002F5030 /* ShareDialog.swift */,
+				80C7C4111B446D1C0059D6F9 /* ImageLoader.swift */,
+				809A61C61B51640800E01B8A /* CelelSelectCollectionViewCell.swift */,
+				809A61C71B51640800E01B8A /* CelelSelectCollectionViewCell.xib */,
 			);
 			name = UIElements;
 			sourceTree = "<group>";
@@ -208,9 +217,9 @@
 			children = (
 				80B18BBD1B19FB09002F5030 /* LOViewController.swift */,
 				80B18BBF1B19FB20002F5030 /* RecordViewController.swift */,
-				80B18BC11B19FB37002F5030 /* SelectViewController.swift */,
 				800CC2C41B1B643000580747 /* CCController.swift */,
 				8026762C1B1F944C0001C1D3 /* AVPlayerViewController.swift */,
+				809A61CA1B51649200E01B8A /* SelectC.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -308,6 +317,7 @@
 				80B18BA01B19FA6A002F5030 /* LaunchScreen.xib in Resources */,
 				80B18B9D1B19FA6A002F5030 /* Images.xcassets in Resources */,
 				80B18BC91B1A1611002F5030 /* SignPainter.ttf in Resources */,
+				809A61C91B51640800E01B8A /* CelelSelectCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,10 +340,12 @@
 				80B18BBE1B19FB09002F5030 /* LOViewController.swift in Sources */,
 				80B18BB91B19FABD002F5030 /* CounterLabel.swift in Sources */,
 				80B18BC01B19FB20002F5030 /* RecordViewController.swift in Sources */,
-				80B18BC21B19FB37002F5030 /* SelectViewController.swift in Sources */,
+				80C7C4121B446D1C0059D6F9 /* ImageLoader.swift in Sources */,
 				80B18BC51B19FB52002F5030 /* LOCaptureSession.swift in Sources */,
 				80B18B961B19FA6A002F5030 /* AppDelegate.swift in Sources */,
 				80B18BBB1B19FAD7002F5030 /* ShareDialog.swift in Sources */,
+				809A61CB1B51649200E01B8A /* SelectC.swift in Sources */,
+				809A61C81B51640800E01B8A /* CelelSelectCollectionViewCell.swift in Sources */,
 				80B18BB71B19FAA9002F5030 /* RecordButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -393,7 +405,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Lukas Ingelheim (3WURMV9M52)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -412,7 +424,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -437,7 +449,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Lukas Ingelheim (3WURMV9M52)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -450,7 +462,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -462,6 +474,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/LipOff",
@@ -471,6 +484,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -479,6 +494,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/LipOff",
@@ -488,6 +504,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "idiom" : "universal",
+      "scale" : "1x",
+      "filename" : "Rectangle 156 + LIP + Layer_x0020_1 + FF Copy 2 + Line.png"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x",
+      "filename" : "Rectangle 156 + LIP + Layer_x0020_1 + FF Copy 2 + Line@2x.png"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x",
+      "filename" : "Rectangle 156 + LIP + Layer_x0020_1 + FF Copy 2 + Line@3x.png"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  }
+}

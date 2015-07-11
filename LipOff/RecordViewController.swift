@@ -22,7 +22,7 @@ class RecordViewController: TGTMViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         changeCelebName()
-        sendCelebritySelected(celebName)
+//        sendCelebritySelected(celebName)
     }
     
     func initVideo() {
@@ -30,8 +30,8 @@ class RecordViewController: TGTMViewController {
         self.view.addSubview(video)
         self.view.sendSubviewToBack(video)
         videoManager.savedCallback = savedVideo
-        videoManager.celebName = celebName
         videoManager.setup()
+        videoManager.selectedTile = self.selectedTile
         videoManager.startCapturing()
         var previewLayer = AVCaptureVideoPreviewLayer(session: videoManager.captureSession)
         video.layer.addSublayer(previewLayer)
@@ -85,7 +85,7 @@ class RecordViewController: TGTMViewController {
     private func startRecording() {
         videoManager.done()
         backButton!.enabled = false
-        sendVideoStarted(celebName)
+//        sendVideoStarted(celebName)
     }
     
     private func stopRecording(secondsLeft: Int) {
@@ -93,7 +93,7 @@ class RecordViewController: TGTMViewController {
         processingModal?.hidden = false
         activityIndicator?.startAnimating()
         backButton!.enabled = true
-        sendVideoRecorded(celebName, secondsLeft: secondsLeft)
+//        sendVideoRecorded(celebName, secondsLeft: secondsLeft)
     }
     
     private func savedVideo(url: NSURL) {
@@ -101,7 +101,7 @@ class RecordViewController: TGTMViewController {
         processingModal?.hidden = true
         activityIndicator?.stopAnimating()
         doneModal?.hidden = false
-        sendVideoSaved(celebName)
+//        sendVideoSaved(celebName)
         
         performSegueWithIdentifier("playVideo", sender: self)
     }

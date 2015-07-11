@@ -10,7 +10,7 @@ class TGTMViewController : UIViewController {
     var shareDialog : ShareDialog?
     var undo : UIButton?
     var backButton : UIButton?
-    var celebName = "Kanye"
+    var selectedTile = TILE_POSITION.TL
     var ryan : UIImageView?
     
     override func viewDidLoad() {
@@ -34,12 +34,18 @@ class TGTMViewController : UIViewController {
     }
     
     func changeCelebName() {
-        ryan!.image = UIImage(named: "\(celebName)CroppedAlpha")
+        recordButton?.userInteractionEnabled = false
+        
+        ImageRepository.sharedRepo.setAlphaImageFor(position: selectedTile, callback: self.callback)
+    }
+    
+    func callback(image: UIImage) {
+        ryan!.image = image
+        recordButton?.userInteractionEnabled = true
     }
     
     private func createRyanImage() {
         ryan = UIImageView(frame: self.view.frame)
-        ryan!.image = UIImage(named: "\(celebName)CroppedAlpha")
         self.view.addSubview(ryan!)
     }
     

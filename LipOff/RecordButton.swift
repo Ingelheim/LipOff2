@@ -14,7 +14,7 @@ class RecordButton : UIButton {
     var currentState : ButtonState = .BS_NORMAL
     var countDownLabel : CounterLabel?
     var countdownTime = 3
-    var recordCount = 10
+    var recordCount = 6
     var recordStartCallback : (() -> Void)?
     var recordDoneCallback : ((secondsLeft: Int) -> Void)?
     var bigLabel : UILabel?

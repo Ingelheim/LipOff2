@@ -13,10 +13,10 @@ class VideoManager: NSObject, AVCaptureFileOutputRecordingDelegate {
     var playing = false
     var button : UIButton?
     var savedCallback : ((url: NSURL) -> Void)?
-    var celebName = "Kanye"
+    var selectedTile = TILE_POSITION.TL
     
     func setup() {
-        captureSession.sessionPreset = AVCaptureSessionPreset1280x720
+        captureSession.sessionPreset = AVCaptureSessionPresetHigh
         setUpCaptureDeviceVideo()
     }
     
@@ -49,18 +49,35 @@ class VideoManager: NSObject, AVCaptureFileOutputRecordingDelegate {
         var asset = AVAsset.assetWithURL(outputFileURL) as! AVAsset
         var composition = AVMutableVideoComposition(propertiesOfAsset: asset)
         
-        imageLayer =  createOverlayLayer(720, heigth: 1280)
-        parentLayer = createParentLayer(720, heigth: 1280)
-        videoLayer = createParentLayer(720, heigth: 1280)
+        println(UIScreen.mainScreen().bounds)
+        var screenWidth = UIScreen.mainScreen().bounds.width
+        var screenHeight = UIScreen.mainScreen().bounds.height
+        var screenRatio = screenHeight / screenWidth
+        
+        println("RATIO \(screenRatio)")
+        
+        var width : CGFloat = 720
+        var height : CGFloat = 1280
+        var isSmall = false
+        
+        if ( screenRatio <= 1.60) {
+            width = 480
+            height = 720
+            isSmall = true
+        }
+        
+        imageLayer =  createOverlayLayer(width, heigth: height)
+        parentLayer = createParentLayer(width, heigth: height)
+        videoLayer = createParentLayer(width, heigth: height)
         
         parentLayer?.addSublayer(videoLayer)
         parentLayer?.addSublayer(imageLayer)
-        parentLayer?.addSublayer(createWebViewLayer(720, heigth: 1280))
+        parentLayer?.addSublayer(createWebViewLayer(width, heigth: height, small: isSmall))
         
         composition.renderScale = 1.0
         composition.animationTool = AVVideoCompositionCoreAnimationTool(postProcessingAsVideoLayer: videoLayer, inLayer: parentLayer)
         
-        var assetExport = AVAssetExportSession(asset: asset, presetName: AVAssetExportPreset1280x720 as String)
+        var assetExport = AVAssetExportSession(asset: asset, presetName: AVAssetExportPresetHighestQuality as String)
         assetExport.videoComposition = composition
         assetExport.outputFileType = AVFileTypeMPEG4
         let date = NSDate()
@@ -107,17 +124,23 @@ class VideoManager: NSObject, AVCaptureFileOutputRecordingDelegate {
     
     private func createOverlayLayer(width: CGFloat, heigth: CGFloat) -> CALayer {
         var layer = CALayer()
-        var image = UIImage(named: "\(celebName)CroppedAlphaFlip")
+        var image = ImageRepository.sharedRepo.getImageFor(position: selectedTile)
         layer.frame = CGRectMake(0, 0, width, heigth)
-        layer.contents = image?.CGImage
+        layer.contents = image.CGImage
         
         return layer
     }
     
-    private func createWebViewLayer(width: CGFloat, heigth: CGFloat) -> CALayer {
+    private func createWebViewLayer(width: CGFloat, heigth: CGFloat, small: Bool) -> CALayer {
+        var ownWidth : CGFloat = small ? 110.0 : 220.0
+        var ownHeight : CGFloat  = small ? 33.0 : 66.0
+        var yOffset : CGFloat  = small ? 200.0 : 350.0
+        var xOffset : CGFloat  = 10.0
+        
         var layer = CALayer()
-        var image = UIImage(named: "Weblink_Red")
-        layer.frame = CGRect(x: 30, y: 180, width: 280, height: 85)
+        var image = UIImage(named: "Weblink_Plain")
+        
+        layer.frame = CGRect(x: width - ownWidth - xOffset , y: yOffset, width: ownWidth, height: ownHeight)
         layer.contents = image?.CGImage
         
         return layer
