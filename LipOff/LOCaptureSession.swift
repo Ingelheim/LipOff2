@@ -13,8 +13,8 @@ class VideoManager: NSObject, AVCaptureFileOutputRecordingDelegate {
     var playing = false
     var button : UIButton?
     var savedCallback : ((url: NSURL) -> Void)?
-    var selectedTile = TILE_POSITION.TL
-    
+    var selectedTile : TILE_POSITION?
+
     func setup() {
         captureSession.sessionPreset = AVCaptureSessionPresetHigh
         setUpCaptureDeviceVideo()
@@ -124,18 +124,18 @@ class VideoManager: NSObject, AVCaptureFileOutputRecordingDelegate {
     
     private func createOverlayLayer(width: CGFloat, heigth: CGFloat) -> CALayer {
         var layer = CALayer()
-        var image = ImageRepository.sharedRepo.getImageFor(position: selectedTile)
+        var image = ImageRepository.sharedRepo.getAlphaFlipImageFor(selectedTile!)
         layer.frame = CGRectMake(0, 0, width, heigth)
-        layer.contents = image.CGImage
+        layer.contents = image!.CGImage
         
         return layer
     }
     
     private func createWebViewLayer(width: CGFloat, heigth: CGFloat, small: Bool) -> CALayer {
-        var ownWidth : CGFloat = small ? 110.0 : 220.0
-        var ownHeight : CGFloat  = small ? 33.0 : 66.0
-        var yOffset : CGFloat  = small ? 200.0 : 350.0
-        var xOffset : CGFloat  = 10.0
+        var ownWidth : CGFloat = small ? 55.0 : 110.0
+        var ownHeight : CGFloat  = small ? 16.5 : 30.0
+        var yOffset : CGFloat  = small ? heigth - 150 : heigth - 220
+        var xOffset : CGFloat  = 40.0
         
         var layer = CALayer()
         var image = UIImage(named: "Weblink_Plain")

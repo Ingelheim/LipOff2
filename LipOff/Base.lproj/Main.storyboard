@@ -44,16 +44,29 @@
                                     <constraint firstAttribute="width" secondItem="RlQ-dW-EWm" secondAttribute="height" multiplier="375:97" constant="34.793814432989677" id="XVt-Nw-Aq7"/>
                                 </constraints>
                             </imageView>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="reload-clear" translatesAutoresizingMaskIntoConstraints="NO" id="dtl-VH-Ejv">
+                                <rect key="frame" x="320" y="30" width="40" height="40"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="dtl-VH-Ejv" secondAttribute="height" multiplier="1:1" id="XRt-K7-br8"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="tfD-hn-PGh" appends="YES" id="S6Z-sb-uCZ"/>
+                                </connections>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="RlQ-dW-EWm" firstAttribute="leading" secondItem="K6d-QN-kcq" secondAttribute="leading" id="0cB-2p-23S"/>
                             <constraint firstAttribute="trailing" secondItem="DAe-kK-hfX" secondAttribute="trailing" id="MYs-2i-Ma6"/>
                             <constraint firstItem="DAe-kK-hfX" firstAttribute="leading" secondItem="K6d-QN-kcq" secondAttribute="leadingMargin" constant="-16" id="MpG-Vp-jre"/>
+                            <constraint firstAttribute="trailing" secondItem="dtl-VH-Ejv" secondAttribute="trailing" constant="15" id="QKv-IJ-pHh"/>
                             <constraint firstItem="RlQ-dW-EWm" firstAttribute="top" secondItem="K6d-QN-kcq" secondAttribute="top" id="XmE-JR-yCh"/>
                             <constraint firstItem="DAe-kK-hfX" firstAttribute="top" secondItem="RlQ-dW-EWm" secondAttribute="bottom" constant="-3" id="YEO-WC-7AY"/>
                             <constraint firstItem="DAe-kK-hfX" firstAttribute="leading" secondItem="K6d-QN-kcq" secondAttribute="leading" id="Z6A-D7-uUr"/>
+                            <constraint firstItem="dtl-VH-Ejv" firstAttribute="top" secondItem="K6d-QN-kcq" secondAttribute="top" constant="30" id="dem-St-xDW"/>
                             <constraint firstAttribute="trailing" secondItem="RlQ-dW-EWm" secondAttribute="trailing" id="oaf-kT-9Rd"/>
+                            <constraint firstItem="dtl-VH-Ejv" firstAttribute="centerY" secondItem="RlQ-dW-EWm" secondAttribute="centerY" constant="6" id="xnC-mo-gya"/>
                             <constraint firstItem="qLH-UK-f9a" firstAttribute="top" secondItem="DAe-kK-hfX" secondAttribute="bottom" id="zNL-pM-a2u"/>
                         </constraints>
                         <variation key="default">
@@ -66,10 +79,16 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="collectionView" destination="DAe-kK-hfX" id="PQX-We-9Jd"/>
+                        <outlet property="reloadAll" destination="dtl-VH-Ejv" id="IF0-HG-jNd"/>
                         <segue destination="RlW-OR-MW7" kind="push" identifier="goToRecord" id="Com-f8-UoI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EZ8-Pd-ZdN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="tfD-hn-PGh">
+                    <connections>
+                        <action selector="reloadTiles:" destination="WeW-C6-lY4" id="OtF-nJ-l5H"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="879.5" y="418.5"/>
         </scene>
@@ -161,5 +180,6 @@
     <resources>
         <image name="Logo-Bar" width="369" height="82"/>
         <image name="licences" width="375" height="667"/>
+        <image name="reload-clear" width="90" height="90"/>
     </resources>
 </document>

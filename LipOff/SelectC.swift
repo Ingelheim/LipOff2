@@ -7,7 +7,7 @@ enum TILE_POSITION : Int {
     case BL = 2
     case BR = 3
     
-    static func getLinkForPosition(position: TILE_POSITION) -> String {
+    static func getPreviewLinkForPosition(position: TILE_POSITION) -> String {
         switch position {
         case .TL:
             return PREVIEW_LINKS.UPPER_LEFT.rawValue
@@ -16,13 +16,41 @@ enum TILE_POSITION : Int {
         case .BL:
             return PREVIEW_LINKS.LOWER_LEFT.rawValue
         case .BR:
-            return PREVIEW_LINKS.UPPER_RIGHT.rawValue
+            return PREVIEW_LINKS.LOWER_RIGHT.rawValue
+        }
+    }
+    
+    static func getAlphaNormalLinkForPosition(position: TILE_POSITION) -> String {
+        switch position {
+        case .TL:
+            return CELEBRITY_IMAGE_NORMAL.UPPER_LEFT.rawValue
+        case .TR:
+            return CELEBRITY_IMAGE_NORMAL.UPPER_RIGHT.rawValue
+        case .BL:
+            return CELEBRITY_IMAGE_NORMAL.LOWER_LEFT.rawValue
+        case .BR:
+            return CELEBRITY_IMAGE_NORMAL.LOWER_RIGHT.rawValue
+        }
+    }
+    
+    static func getAlphaFlipLinkForPosition(position: TILE_POSITION) -> String {
+        switch position {
+        case .TL:
+            return CELEBRITY_IMAGE_MIRRORED.UPPER_LEFT.rawValue
+        case .TR:
+            return CELEBRITY_IMAGE_MIRRORED.UPPER_RIGHT.rawValue
+        case .BL:
+            return CELEBRITY_IMAGE_MIRRORED.LOWER_LEFT.rawValue
+        case .BR:
+            return CELEBRITY_IMAGE_MIRRORED.LOWER_RIGHT.rawValue
         }
     }
 }
 
 class SelectC : UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    var imageRepo = ImageRepository.sharedRepo
     var selectedTile : TILE_POSITION?
+    
     var cells = [
         0 : CelelSelectCollectionViewCell(),
         1 : CelelSelectCollectionViewCell(),
@@ -31,6 +59,21 @@ class SelectC : UIViewController, UICollectionViewDataSource, UICollectionViewDe
     ]
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var reloadAll: UIImageView!
+    @IBAction func reloadTiles(sender: AnyObject) {
+        let actionSheetController: UIAlertController = UIAlertController(title: "Reload Images", message: "Do you really want to reaload the images?", preferredStyle: .Alert)
+        
+        let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { action -> Void in
+        }
+        actionSheetController.addAction(cancelAction)
+        
+        let reloadAction: UIAlertAction = UIAlertAction(title: "Reload Images", style: .Default) { action -> Void in
+            self.collectionView.reloadData()
+        }
+        actionSheetController.addAction(reloadAction)
+        
+        self.presentViewController(actionSheetController, animated: true, completion: nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,9 +101,8 @@ class SelectC : UIViewController, UICollectionViewDataSource, UICollectionViewDe
         var cellPosition = TILE_POSITION(rawValue: indexPath.item)!
         
         cell.reloadCallback = {
-            println("callback called")
             self.setPreviewImageForCell(cell, position: cellPosition)
-            self.reloadImagesForPosition(cellPosition)
+            self.reloadImagesForPosition(cellPosition, cell: cell)
         }
         
         cells[indexPath.item] = cell
@@ -81,29 +123,50 @@ class SelectC : UIViewController, UICollectionViewDataSource, UICollectionViewDe
     }
     
     func setPreviewImageForCell(cell : CelelSelectCollectionViewCell, position: TILE_POSITION) {
-        getDataFromUrl(NSURL(string: TILE_POSITION.getLinkForPosition(position))!) { (data, error) -> Void in
-            
-            if let actualError = error {
-                cell.setError()
-                return
-            }
-            
-            if let imageData = data {
-                if let actualImage = UIImage(data: imageData) {
-                    cell.setNewImage(actualImage)
-                    cell.clickable = true
-                }
-            }
-        }
-        
-        dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_BACKGROUND.value), 0)) {
-            ImageRepository.sharedRepo.loadImagesFor(position)
+        dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.value), 0)) {
+            self.loadImagesForPosition(position, cell: cell)
         }
     }
     
-    private func reloadImagesForPosition(position: TILE_POSITION) {
-        dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_BACKGROUND.value), 0)) {
-            ImageRepository.sharedRepo.reloadImagesFor(position)
+    func loadImagesForPosition(position: TILE_POSITION, cell: CelelSelectCollectionViewCell) {        
+        self.loadImageForURL(NSURL(string: TILE_POSITION.getPreviewLinkForPosition(position))!, callback: { (data, error) -> Void in
+            if(error) {
+                cell.setError()
+                return
+            } else {
+                self.imageRepo.setPreviewImageFor(UIImage(data: data)!, position: position)
+            }
+            self.loadImageForURL(NSURL(string: TILE_POSITION.getAlphaNormalLinkForPosition(position))!, callback: { (data, error) -> Void in
+                if(error) {
+                    cell.setError()
+                    return
+                } else {
+                    self.imageRepo.setAlphaNormalImageFor(UIImage(data: data)!, position: position)
+                }
+                
+                self.loadImageForURL(NSURL(string: TILE_POSITION.getAlphaFlipLinkForPosition(position))!, callback: { (data, error) -> Void in
+                    if(error) {
+                        cell.setError()
+                        return
+                    } else {
+                        self.imageRepo.setAlphaFlipImageFor(UIImage(data: data)!, position: position)
+                        cell.setNewImage(self.imageRepo.getPreviewImageFor(position)!)
+                        cell.clickable = true
+                    }
+                })
+            })
+        })
+    }
+    
+    func loadImageForURL(url: NSURL, callback: (data : NSData, error : Bool) -> Void) {
+        getDataFromUrl(url, completion: { (data, error) -> Void in
+            callback(data: data!, error: error != nil)
+        })
+    }
+    
+    private func reloadImagesForPosition(position: TILE_POSITION, cell: CelelSelectCollectionViewCell) {
+        dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.value), 0)) {
+            self.loadImagesForPosition(position, cell: cell)
         }
     }
     

@@ -3,6 +3,7 @@ import UIKit
 class TGTMViewController : UIViewController {
     let lipOffRed = UIColor(red: 0.937, green: 0.333, blue: 0.31, alpha: 1)
     
+    let imageRepo = ImageRepository.sharedRepo
     var recordButton : RecordButton?
     var flashImage : UIView?
     var countdownLabel : UILabel?
@@ -34,13 +35,7 @@ class TGTMViewController : UIViewController {
     }
     
     func changeCelebName() {
-        recordButton?.userInteractionEnabled = false
-        
-        ImageRepository.sharedRepo.setAlphaImageFor(position: selectedTile, callback: self.callback)
-    }
-    
-    func callback(image: UIImage) {
-        ryan!.image = image
+        ryan!.image = imageRepo.getAlphaNormalImageFor(selectedTile)
         recordButton?.userInteractionEnabled = true
     }
     
