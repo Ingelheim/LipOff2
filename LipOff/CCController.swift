@@ -10,12 +10,18 @@ class CCController : UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        licencesView.image = ImageRepository.sharedRepo.licences
+        getDataFromUrl(NSURL(string: "https://raw.githubusercontent.com/Ingelheim/LipOffAssets/master/LICENCES/CURRENT_LICENCES.png")!, completion: { (data, error) -> Void in
+            if (error ==  nil) {
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.licencesView.image = UIImage(data: data!)
+                })
+            }
+        })
     }
     
-    private func getDataFromUrl(urL:NSURL, completion: ((data: NSData?) -> Void)) {
+    private func getDataFromUrl(urL:NSURL, completion: ((data: NSData?, error: NSError?) -> Void)) {
         NSURLSession.sharedSession().dataTaskWithURL(urL) { (data, response, error) in
-            completion(data: data)
+            completion(data: data, error: error)
             }.resume()
     }
     

@@ -19,7 +19,6 @@ enum CELEBRITY_IMAGE_MIRRORED : String {
     case UPPER_RIGHT = "https://raw.githubusercontent.com/Ingelheim/LipOffAssets/master/UPPER_RIGHT/FLIP.png"
     case LOWER_LEFT = "https://raw.githubusercontent.com/Ingelheim/LipOffAssets/master/LOWER_LEFT/FLIP.png"
     case LOWER_RIGHT = "https://raw.githubusercontent.com/Ingelheim/LipOffAssets/master/LOWER_RIGHT/FLIP.png"
-//                    if let url = NSURL(string: "https://raw.githubusercontent.com/Ingelheim/LipOffAssets/master/LICENCES/CURRENT_LICENCES.png") {
 }
 
 class ImageRepository {
@@ -40,9 +39,6 @@ class ImageRepository {
     var upperRightAlphaFlip : UIImage?
     var lowerLeftAlphaFlip : UIImage?
     var lowerRightAlphaFlip : UIImage?
-    
-    // LICENCE
-    var licences : UIImage?
     
     class var sharedRepo : ImageRepository {
         struct Static {
