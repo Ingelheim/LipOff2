@@ -22,7 +22,7 @@ class RecordViewController: TGTMViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         changeCelebName()
-//        sendCelebritySelected(celebName)
+        sendCelebritySelected(selectedTile)
     }
     
     func initVideo() {
@@ -85,7 +85,7 @@ class RecordViewController: TGTMViewController {
     private func startRecording() {
         videoManager.done()
         backButton!.enabled = false
-//        sendVideoStarted(celebName)
+        sendVideoStarted(selectedTile)
     }
     
     private func stopRecording(secondsLeft: Int) {
@@ -93,7 +93,7 @@ class RecordViewController: TGTMViewController {
         processingModal?.hidden = false
         activityIndicator?.startAnimating()
         backButton!.enabled = true
-//        sendVideoRecorded(celebName, secondsLeft: secondsLeft)
+        sendVideoRecorded(selectedTile, secondsLeft: secondsLeft)
     }
     
     private func savedVideo(url: NSURL) {
@@ -101,24 +101,24 @@ class RecordViewController: TGTMViewController {
         processingModal?.hidden = true
         activityIndicator?.stopAnimating()
         doneModal?.hidden = false
-//        sendVideoSaved(celebName)
+        sendVideoSaved(selectedTile)
         
         performSegueWithIdentifier("playVideo", sender: self)
     }
     
-    private func sendCelebritySelected(name : String) {
-        PFAnalytics.trackEventInBackground("celebritySelected", dimensions: ["celebrityName" : name], block: nil)
+    private func sendCelebritySelected(position : TILE_POSITION) {
+        PFAnalytics.trackEventInBackground("celebritySelected", dimensions: ["tilePosition" :"\(position.rawValue)"], block: nil)
     }
     
-    private func sendVideoStarted(name : String) {
-        PFAnalytics.trackEventInBackground("videoStarted", dimensions: ["celebrityName" : name], block: nil)
+    private func sendVideoStarted(position : TILE_POSITION) {
+        PFAnalytics.trackEventInBackground("videoStarted", dimensions: ["tilePosition" : "\(position.rawValue)"], block: nil)
     }
     
-    private func sendVideoRecorded(name : String, secondsLeft : Int) {
-        PFAnalytics.trackEventInBackground("videoRecorded", dimensions: ["celebrityName" : name, "secondsLeft" : "\(secondsLeft)"], block: nil)
+    private func sendVideoRecorded(position : TILE_POSITION, secondsLeft : Int) {
+        PFAnalytics.trackEventInBackground("videoRecorded", dimensions: ["tilePosition" : "\(position.rawValue)", "secondsLeft" : "\(secondsLeft)"], block: nil)
     }
     
-    private func sendVideoSaved(name : String) {
-        PFAnalytics.trackEventInBackground("videoSaved", dimensions: ["celebrityName" : name], block: nil)
+    private func sendVideoSaved(position : TILE_POSITION) {
+        PFAnalytics.trackEventInBackground("videoSaved", dimensions: ["tilePosition" : "\(position.rawValue)"], block: nil)
     }
 }

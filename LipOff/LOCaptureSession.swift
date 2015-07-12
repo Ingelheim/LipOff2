@@ -49,12 +49,9 @@ class VideoManager: NSObject, AVCaptureFileOutputRecordingDelegate {
         var asset = AVAsset.assetWithURL(outputFileURL) as! AVAsset
         var composition = AVMutableVideoComposition(propertiesOfAsset: asset)
         
-        println(UIScreen.mainScreen().bounds)
         var screenWidth = UIScreen.mainScreen().bounds.width
         var screenHeight = UIScreen.mainScreen().bounds.height
         var screenRatio = screenHeight / screenWidth
-        
-        println("RATIO \(screenRatio)")
         
         var width : CGFloat = 720
         var height : CGFloat = 1280
